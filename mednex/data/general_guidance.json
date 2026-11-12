@@ -1,0 +1,166 @@
+{
+  "notice": "Small curated general educational information set. Not a clinical guideline, diagnosis, or individualized care plan. No medicine or dosage recommendations.",
+  "topics": [
+    {
+      "id": "cough",
+      "label": "cough",
+      "aliases": ["cough", "coughing"],
+      "comfort_steps": [
+        "Rest and drink fluids; a warm drink may feel soothing. Keep drinks warm rather than scalding.",
+        "Honey may soothe a cough for people older than one year. Never give honey to a child under one year.",
+        "Avoid smoke and vaping where possible."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if the cough is worsening, not improving, or worrying you."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for severe difficulty breathing, blue or grey lips, severe chest pain, coughing up blood, or new confusion."
+      ]
+    },
+    {
+      "id": "fever",
+      "label": "fever",
+      "aliases": ["fever", "high temperature"],
+      "comfort_steps": [
+        "Rest, drink fluids regularly, and wear comfortable light clothing.",
+        "Keep the room comfortably ventilated and avoid trying to cool yourself with ice or very cold baths."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if you feel very unwell, the fever is worsening or not settling, or you are concerned.",
+        "Seek professional advice promptly for a fever in a very young infant or if you have a condition that increases infection risk."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for difficulty breathing, new confusion, a seizure, fainting, or rapid worsening."
+      ]
+    },
+    {
+      "id": "cold",
+      "label": "cold symptoms",
+      "aliases": ["cold", "common cold", "colld"],
+      "comfort_steps": [
+        "Rest and drink fluids; warm drinks may feel soothing if your throat is irritated.",
+        "A clean cool-mist humidifier may make the air feel more comfortable. Avoid bowls of boiling water because of burn risk."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if symptoms are worsening, last longer than expected, or are concerning to you."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for severe difficulty breathing, blue or grey lips, new confusion, or rapid worsening."
+      ]
+    },
+    {
+      "id": "abdominal pain",
+      "label": "stomach or abdominal pain",
+      "aliases": [
+        "stomach pain",
+        "stomach ache",
+        "stomachache",
+        "tummy ache",
+        "belly pain",
+        "abdominal pain",
+        "stomack pain",
+        "stomache pain"
+      ],
+      "comfort_steps": [
+        "Rest and take small sips of fluid if that feels comfortable.",
+        "Avoid forcing food; choose small, simple portions only if you feel able to eat."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if the pain persists, returns, worsens, or concerns you."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for sudden or severe pain, fainting, blood in vomit or stool, or a rapidly worsening condition."
+      ]
+    },
+    {
+      "id": "sore-throat",
+      "label": "sore throat",
+      "aliases": ["sore throat", "throat pain", "throat ache", "sore throte"],
+      "comfort_steps": [
+        "Drink fluids and rest; warm or cool drinks may feel soothing.",
+        "Avoid smoke and other throat irritants."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if symptoms worsen, persist, or make it difficult to drink."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for difficulty breathing, inability to swallow saliva, or rapid swelling in the throat."
+      ]
+    },
+    {
+      "id": "headache",
+      "label": "headache",
+      "aliases": ["headache", "head pain"],
+      "comfort_steps": [
+        "Rest somewhere quiet, drink water, and try not to skip meals.",
+        "Taking a break from bright screens may help if they make you feel worse."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if the headache is new, recurring, worsening, or concerning."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for a sudden severe headache, weakness on one side, new confusion, fainting, or a headache after a significant head injury."
+      ]
+    },
+    {
+      "id": "congestion",
+      "label": "nasal congestion",
+      "aliases": ["congestion", "stuffy nose", "blocked nose"],
+      "comfort_steps": [
+        "Drink fluids and rest.",
+        "A clean cool-mist humidifier or a comfortable warm shower may feel soothing. Avoid bowls of boiling water because of burn risk."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if symptoms are worsening, persistent, or concerning."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help if congestion comes with severe difficulty breathing, blue or grey lips, or rapid worsening."
+      ]
+    },
+    {
+      "id": "nausea",
+      "label": "nausea",
+      "aliases": ["nausea", "feeling nauseated", "feeling sick"],
+      "comfort_steps": [
+        "Try small, frequent sips of water or other suitable fluids.",
+        "When you feel able, small portions of simple foods may be easier than a large meal."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if nausea persists, worsens, or you cannot keep fluids down."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for severe abdominal pain, fainting, blood in vomit, or signs of severe dehydration."
+      ]
+    },
+    {
+      "id": "diarrhea",
+      "label": "diarrhea",
+      "aliases": ["diarrhea", "diarrhoea"],
+      "comfort_steps": [
+        "Take frequent small sips of fluids to help replace what is lost.",
+        "Rest and eat what you can tolerate; avoid forcing large meals."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if it persists, worsens, or you are concerned, especially for a young child or someone medically vulnerable."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for blood in stool, severe pain, fainting, confusion, or signs of severe dehydration."
+      ]
+    },
+    {
+      "id": "fatigue",
+      "label": "fatigue",
+      "aliases": ["fatigue", "tiredness", "feeling tired"],
+      "comfort_steps": [
+        "Try to rest, keep a comfortable sleep routine, and drink fluids.",
+        "If you feel up to it, gentle activity and regular meals may be easier than pushing through exhaustion."
+      ],
+      "seek_help": [
+        "Contact a healthcare professional if fatigue is persistent, worsening, unexplained, or affecting daily activities."
+      ],
+      "urgent_signs": [
+        "Get urgent medical help for fainting, new confusion, severe difficulty breathing, or sudden weakness."
+      ]
+    }
+  ]
+}

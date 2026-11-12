@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f5f8f6">
+    <meta name="description" content="MEDNEX general educational health information chat">
+    <title>MEDNEX — Health information, thoughtfully explained</title>
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <a class="brand" href="/" aria-label="MEDNEX home">
+          <span class="brand-mark" aria-hidden="true">M</span>
+          <span>mednex<span class="brand-period">.</span></span>
+        </a>
+        <div class="topbar-note"><span class="status-dot"></span> Private, local demonstration</div>
+      </header>
+
+      <main class="layout">
+        <aside class="intro-panel">
+          <div class="eyebrow">A calmer place to start</div>
+          <h1>Health questions,<br><em>clearly explained.</em></h1>
+          <p class="intro-copy">
+            Choose general information chat or a separate educational reasoning
+            agent for explicitly fictional cases.
+          </p>
+
+          <div class="boundary-card">
+            <div class="boundary-icon" aria-hidden="true">i</div>
+            <div>
+              <strong>General information only</strong>
+              <p>Educational simulation only. Never enter real patient details. No diagnoses or medicines.</p>
+            </div>
+          </div>
+
+          <div class="examples">
+            <div class="examples-heading">Try a general question</div>
+            <button class="example-prompt" type="button" data-prompt="I have a cough.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              I have a cough
+            </button>
+            <button class="example-prompt" type="button" data-prompt="I have a cold.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              I have a cold
+            </button>
+            <button class="example-prompt" type="button" data-prompt="I have stomach pain.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              I have stomach pain
+            </button>
+            <button class="example-prompt" type="button" data-prompt="I have a fever.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              I have a fever
+            </button>
+            <button class="example-prompt" type="button" data-prompt="I have a sore throat.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              My throat feels sore
+            </button>
+            <button class="example-prompt" type="button" data-prompt="I have a headache.">
+              <span class="example-icon" aria-hidden="true">↗</span>
+              I have a headache
+            </button>
+          </div>
+
+          <div class="made-with">
+            <span class="made-dot"></span>
+            Deterministic guidance · No LLM
+          </div>
+        </aside>
+
+        <section class="chat-panel" aria-label="MEDNEX general information chat">
+          <div class="mode-switch" role="tablist" aria-label="MEDNEX modes">
+            <button id="chat-mode" class="mode-tab active" type="button" role="tab"
+              aria-selected="true">General information</button>
+            <button id="agent-mode" class="mode-tab" type="button" role="tab"
+              aria-selected="false">Reasoning Agent</button>
+          </div>
+          <div class="chat-heading">
+            <div class="assistant-avatar" aria-hidden="true">M</div>
+            <div>
+              <div id="assistant-name" class="assistant-name">MEDNEX assistant</div>
+              <div id="assistant-status" class="assistant-status">General information · no LLM</div>
+            </div>
+            <button id="clear-chat" class="clear-button" type="button" title="Start a new chat">
+              New chat
+            </button>
+          </div>
+
+          <div id="chat-messages" class="chat-messages" aria-live="polite" aria-relevant="additions">
+            <article class="message assistant-message">
+              <div class="message-avatar" aria-hidden="true">M</div>
+              <div class="message-content">
+                <div class="message-label">MEDNEX <span>· general information</span></div>
+                <div class="message-bubble welcome-bubble">
+                  <p>Hello. Tell me what you’re experiencing, and I’ll share general comfort measures and signs that mean it’s time to seek help.</p>
+                  <p class="bubble-note">I can’t diagnose or recommend medicines. If this may be an emergency, contact your local emergency service now.</p>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="composer-wrap">
+            <form id="chat-form" class="composer">
+              <label id="message-label" class="sr-only" for="message-input">Describe a symptom or ask a general question</label>
+              <textarea id="message-input" name="message" rows="1" maxlength="4000"
+                placeholder="What would you like general information about?" required></textarea>
+              <button id="send-button" class="send-button" type="submit" aria-label="Send message">
+                <span aria-hidden="true">↑</span>
+              </button>
+            </form>
+            <div class="composer-foot">
+              <span>Do not include names or personal identifying details.</span>
+              <span>Enter to send · Shift + Enter for a new line</span>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="footer">
+        <span>MEDNEX is an educational demonstration, not a medical service.</span>
+        <span>Not a diagnosis · Not a treatment plan · No medicines or dosages</span>
+      </footer>
+    </div>
+  </body>
+</html>

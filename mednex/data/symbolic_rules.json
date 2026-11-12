@@ -1,0 +1,53 @@
+{
+  "description": "Small synthetic educational production-rule set for testing deterministic reasoning traces. It is not clinical guidance.",
+  "rules": [
+    {
+      "id": "synthetic-cough-fever-pattern",
+      "priority": 100,
+      "conditions": [
+        {"fact_type": "symptom", "key": "cough", "operator": "present"},
+        {"fact_type": "symptom", "key": "fever", "operator": "present"}
+      ],
+      "assessment_signal": "synthetic_pattern_alpha",
+      "polarity": "supporting",
+      "evidence_flag": "alpha_pattern_supported",
+      "explanation": "Synthetic example only: both explicitly reported symptoms satisfy this educational rule."
+    },
+    {
+      "id": "synthetic-cough-with-negated-fever",
+      "priority": 90,
+      "conditions": [
+        {"fact_type": "symptom", "key": "cough", "operator": "present"},
+        {"fact_type": "observation", "key": "symptom", "operator": "negated", "value": "fever"}
+      ],
+      "assessment_signal": "synthetic_pattern_alpha",
+      "polarity": "conflicting",
+      "evidence_flag": "alpha_pattern_contradicted",
+      "explanation": "Synthetic example only: the reported negation conflicts with another rule's support for this signal."
+    },
+    {
+      "id": "synthetic-forward-chain-to-beta",
+      "priority": 70,
+      "conditions": [
+        {"fact_type": "evidence_flag", "key": "alpha_pattern_supported", "operator": "present"},
+        {"fact_type": "symptom", "key": "headache", "operator": "present"}
+      ],
+      "assessment_signal": "synthetic_pattern_beta",
+      "polarity": "supporting",
+      "evidence_flag": "beta_pattern_supported",
+      "explanation": "Synthetic example only: an earlier derived flag and a reported symptom trigger a second rule."
+    },
+    {
+      "id": "synthetic-oxygen-observation-conflict",
+      "priority": 60,
+      "conditions": [
+        {"fact_type": "observation", "key": "oxygen_saturation_percent", "operator": "less_than", "value": 90},
+        {"fact_type": "symptom", "key": "headache", "operator": "present"}
+      ],
+      "assessment_signal": "synthetic_pattern_beta",
+      "polarity": "conflicting",
+      "evidence_flag": "beta_pattern_conflicted",
+      "explanation": "Synthetic example only: this numeric condition demonstrates an opposing evidence flag, not a medical threshold."
+    }
+  ]
+}

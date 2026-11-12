@@ -1,0 +1,1622 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>MEDNEX: A Complete Beginner's Demonstration</title>
+<style>
+@page { size: A4; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; font-family: Arial, Helvetica, sans-serif; color: #172433; }
+body { background: #e9eef4; }
+.page { width: 210mm; height: 297mm; position: relative; overflow: hidden; padding: 17mm 18mm 20mm; margin: 0 auto 8mm; background: #fff; page-break-after: always; break-after: page; }
+.page:last-child { page-break-after: auto; break-after: auto; }
+.kicker { color: #087e8b; text-transform: uppercase; letter-spacing: 1.4px; font-size: 8pt; font-weight: bold; margin: 0 0 4mm; }
+h1 { color: #102a43; font-size: 25pt; line-height: 1.08; margin: 0 0 5mm; }
+h2 { color: #086972; font-size: 13pt; margin: 5mm 0 2mm; }
+h3 { color: #28536b; font-size: 10pt; margin: 3mm 0 1.5mm; }
+p, li { font-size: 9.2pt; line-height: 1.36; }
+p { margin: 0 0 2.5mm; }
+ul, ol { margin: 1mm 0 3mm 6mm; padding-left: 4mm; }
+li { margin: 0 0 1.2mm; }
+table { width: 100%; border-collapse: collapse; margin: 2mm 0 3mm; font-size: 8.3pt; }
+th { background: #e7f2f4; color: #123b50; text-align: left; }
+th, td { border: 0.5pt solid #c8d6df; padding: 1.7mm 2mm; vertical-align: top; }
+.equation { background: #f2f7fa; border-left: 3px solid #087e8b; padding: 3mm 4mm; margin: 2.5mm 0 3mm; text-align: center; font-size: 12pt; font-weight: bold; line-height: 1.5; }
+.equation small { display: block; font-size: 8.4pt; font-weight: normal; color: #445; }
+.box { border: 1px solid #b9d5d9; background: #f3fbfb; padding: 3mm 4mm; margin: 3mm 0; border-radius: 2mm; }
+.warning { border-left: 4px solid #d27b28; background: #fff7ec; padding: 3mm 4mm; margin: 3mm 0; font-size: 8.8pt; line-height: 1.35; }
+.code { background: #172433; color: #f4f7fa; padding: 3mm 4mm; margin: 2.5mm 0; border-radius: 2mm; font-family: Consolas, "Courier New", monospace; font-size: 8.4pt; line-height: 1.32; white-space: pre-wrap; }
+.muted { color: #4a6070; font-size: 8.3pt; }
+.two { display: grid; grid-template-columns: 1fr 1fr; gap: 4mm; }
+.tag { display: inline-block; background: #e7f2f4; color: #086972; padding: 1mm 2mm; border-radius: 2mm; font-size: 8pt; font-weight: bold; margin: 0 1mm 1mm 0; }
+.rule { border: 0; border-top: 1px solid #d8e1e8; margin: 4mm 0; }
+.footer { position: absolute; bottom: 8mm; left: 18mm; right: 18mm; border-top: 0.5pt solid #c8d6df; padding-top: 2mm; display: flex; justify-content: space-between; font-size: 7.5pt; color: #587080; }
+.cover { background: linear-gradient(145deg, #102a43, #086972); color: white; }
+.cover h1, .cover h2, .cover .kicker { color: white; }
+.cover .subtitle { font-size: 16pt; line-height: 1.4; max-width: 150mm; margin: 12mm 0; }
+.cover .badge { background: rgba(255,255,255,.14); padding: 4mm; border-radius: 2mm; max-width: 150mm; line-height: 1.45; }
+.cover .footer { color: #e3f2f4; border-color: rgba(255,255,255,.4); }
+.chapter { background: #f0f7f8; }
+.chapter .number { font-size: 52pt; color: #83b9bd; font-weight: bold; }
+@media print {
+ body { background: #fff; }
+ .page { margin: 0; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<section class="page cover">
+  <p class="kicker">Student edition · Python, logic, and beginner mathematics</p>
+  <h1>MEDNEX</h1>
+  <p class="subtitle">A complete, step-by-step demonstration<br>for curious beginners</p>
+  <div class="badge">
+    <b>70-page learning guide</b><br>
+    Understand the app from the first click to the final response. Learn the
+    beginner Python ideas behind it. Follow the toy probability calculations
+    one small step at a time. No advanced mathematics is required.
+  </div>
+  <h2 style="margin-top:20mm">A careful note before we begin</h2>
+  <p style="color:white;font-size:11pt;line-height:1.55">
+    MEDNEX is a local classroom software demonstration, not a medical service.
+    Use only fictional examples. Its sample data and labels are synthetic.
+    Nothing in the application diagnoses, triages, or recommends treatment.
+  </p>
+  <div class="footer"><span>MEDNEX Beginner Demonstration</span><span>Page 1 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">How to use this book</p><h1>A friendly map</h1>
+  <p>This guide is designed for a student who is new to coding and simple
+  statistics. Read in order, or use the page map to find a topic. Every formula
+  is translated into ordinary words before it is used. Code examples are small
+  pieces for learning; they are not a replacement for the real project files.</p>
+  <table><tr><th>Pages</th><th>Learning path</th></tr>
+  <tr><td>3–9</td><td>What MEDNEX is, its two modes, and the complete route from browser to reply.</td></tr>
+  <tr><td>10–15</td><td>Python basics: values, variables, strings, lists, dictionaries, conditions, loops, and functions.</td></tr>
+  <tr><td>16–23</td><td>Browser/server basics, templates, and JSON.</td></tr>
+  <tr><td>24–31</td><td>Pattern matching, parsing, and structured facts.</td></tr>
+  <tr><td>32–41</td><td>Safety gates, validation, graph ideas, symbolic rules, agent cycles, and follow-ups.</td></tr>
+  <tr><td>42–49</td><td>Probability foundations and a worked Bayes example using the synthetic data.</td></tr>
+  <tr><td>50–57</td><td>Machine learning concepts and beginner explanations of evaluation measures.</td></tr>
+  <tr><td>58–65</td><td>Entropy and information gain, explained step by step with actual example parameters.</td></tr>
+  <tr><td>66–70</td><td>Outputs, tests, limitations, a complete classroom demonstration, and review.</td></tr></table>
+  <div class="box"><b>Reading tip:</b> When you see a value like 0.8, read it as
+  “eight tenths,” or 80 out of 100. When you see a code name, it is simply a
+  label the programmer chose. You can skip the code and still understand the
+  story.</div>
+  <p>The implementation details were checked against this repository's Python
+  files and bundled data. The guide explains the system as it is implemented;
+  it does not claim that these steps are the historical order in which the
+  project was built.</p>
+  <div class="footer"><span>How to use this book</span><span>Page 2 of 70</span></div>
+</section>
+
+<section class="page chapter">
+  <p class="kicker">Part I · Seeing the whole system</p><div class="number">01</div>
+  <h1>What is MEDNEX?</h1>
+  <p>MEDNEX is a small local web application. A person types a message into a
+  browser page. Python receives it, follows fixed rules, and sends a response
+  back. This project is interesting because it looks like a chat, but it does
+  not use a large language model to invent its answer.</p>
+  <p>Instead, the program recognizes some known phrases, chooses prepared text
+  from local files, and puts that text into a sentence structure written by a
+  developer. In a separate mode, it runs educational examples of logic,
+  probability, machine learning, and question selection.</p>
+  <div class="box"><b>Big idea:</b> MEDNEX is like a carefully labeled card
+  catalogue. It can find cards it knows about and arrange them in a helpful
+  order. It does not understand every possible sentence.</div>
+  <p>Why build it? To demonstrate that a predictable, inspectable program can
+  power a conversational interface. You can trace a response back to code and
+  data. The trade-off is limited coverage: unfamiliar language may not match,
+  and a matching phrase does not mean the program understands the person.</p>
+  <p><b>Key words:</b> “local” means the server runs on this computer;
+  “deterministic” means the same supported input and same data normally lead
+  to the same output; “LLM” means large language model.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 3 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>Two modes, two jobs</h1>
+  <p>The page offers two different experiences. They may look similar, but
+  their internal work is different. Keeping this distinction clear is one of
+  the most important things to understand about MEDNEX.</p>
+  <table><tr><th>General Information</th><th>Reasoning Agent</th></tr>
+  <tr><td>Matches supported message wording to a guidance topic.</td><td>Accepts a clearly fictional or synthetic case.</td></tr>
+  <tr><td>Returns prepared educational text.</td><td>Parses facts and runs separate teaching engines.</td></tr>
+  <tr><td>Does not run Bayesian, graph, symbolic, or ML reasoning.</td><td>Runs those engines, then hides technical output in chat.</td></tr>
+  <tr><td>May ask for clarification when it cannot match.</td><td>May ask a planner-selected educational follow-up.</td></tr></table>
+  <p><b>Why two modes?</b> A general chat response and a reasoning experiment
+  solve different software problems. A retrieval-and-template path is
+  straightforward and controlled. The agent mode lets a class explore how
+  structured data and toy reasoning methods connect.</p>
+  <div class="warning"><b>Do not mix the claims:</b> The chat does not use a
+  language model. The reasoning agent's synthetic probability numbers do not
+  create the chat's wording. Its final user-facing answer is also built from
+  fixed template code.</div>
+  <p>When explaining MEDNEX aloud, say which mode you are showing before
+  entering an example. That prevents a viewer from thinking every answer has
+  passed through every engine.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 4 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>What problem does it solve?</h1>
+  <p>A web page needs a way to receive text, understand which supported topic
+  was mentioned, choose a response, and display it. MEDNEX demonstrates this
+  whole path using ordinary software pieces rather than an AI text generator.</p>
+  <ol><li><b>Receive:</b> get the message from the web page.</li>
+  <li><b>Check:</b> reject bad or out-of-scope requests.</li>
+  <li><b>Recognize:</b> find known terms with explicit patterns.</li>
+  <li><b>Represent:</b> store the result in named fields.</li>
+  <li><b>Respond:</b> select approved content and arrange it.</li>
+  <li><b>Display:</b> send the result back to the browser.</li></ol>
+  <p>For the agent, additional educational steps calculate graph associations,
+  rule traces, synthetic probabilities, model predictions, and candidate
+  questions. These are separate examples inside the same application.</p>
+  <p><b>Why is predictability useful?</b> A student can inspect the response
+  path. A developer can write a test that says “when this supported phrase is
+  sent, this status and these fields are returned.” This is easier to trace
+  than text that could be generated differently each time.</p>
+  <p><b>What is not solved?</b> MEDNEX does not understand arbitrary language,
+  know personal context, or establish that a synthetic pattern applies to
+  reality. It is an engineering demonstration, not a medical decision tool.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 5 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>The whole route at a glance</h1>
+  <div class="code">Browser page
+   ↓ sends a JSON message
+Python local web server
+   ↓ checks route and request
+General chat OR Reasoning Agent
+   ↓ creates a structured result
+Fixed response builder
+   ↓ returns JSON
+Browser displays text</div>
+  <p>Think of a restaurant. The browser is the customer placing an order. The
+  server is the counter receiving it. The selected mode is the kitchen
+  station. The structured response is the tray with labeled sections. The
+  browser is the person carrying it back to the table.</p>
+  <p>Each boundary has a job. The browser should not decide probability
+  calculations. The parser should not decide how a button looks. The response
+  builder should not pretend it can infer facts that were not extracted.</p>
+  <div class="box"><b>Vocabulary:</b> A <i>request</i> travels from browser to
+  server. A <i>response</i> travels back. An <i>endpoint</i> is a named server
+  route such as <code>/api/chat</code>. JSON is a text format for labeled data.</div>
+  <p>Later pages follow one fictional case through each step. The same case is
+  used repeatedly so you can see which facts are carried forward and which
+  numbers belong only to a particular exercise.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 6 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>What “no LLM” means</h1>
+  <p>An LLM can produce new text by predicting language patterns. MEDNEX's chat
+  follows a different method: it uses written patterns to recognize a
+  limited vocabulary, then fills written sentence frames with known labels
+  and content.</p>
+  <div class="two"><div class="box"><b>Fixed template</b><p>“I can share general information about [topic].” The bracket is filled with a recognized topic.</p></div><div class="box"><b>Prepared data</b><p>A local file provides a label and prewritten comfort and safety wording for each supported topic.</p></div></div>
+  <p>The combination can feel conversational, but the grammar is not learned
+  dynamically. If the code has not been written to handle a phrase or a
+  combination, it may respond awkwardly or ask for clarification.</p>
+  <p><b>Why demonstrate this?</b> It makes the source of each sentence
+  inspectable and repeatable. It also makes the limits visible: the system
+  only knows what the developers added to its pattern lists, templates, and
+  data files.</p>
+  <p>“No LLM” does not mean “no algorithms.” The agent includes classical
+  algorithms: graph traversal, if/then rules, probability arithmetic, and
+  standard machine-learning models. They calculate or select; they do not
+  write the answer prose.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 7 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>What counts as structured data?</h1>
+  <p>A sentence is flexible: “A fictional person has a cough for three days.”
+  A program is easier to reason about when it turns that sentence into labeled
+  pieces, such as a symptom name, a present/absent marker, and a duration.</p>
+  <table><tr><th>Field name</th><th>Example value</th><th>Plain meaning</th></tr>
+  <tr><td><code>name</code></td><td><code>cough</code></td><td>Which supported symptom phrase matched</td></tr>
+  <tr><td><code>is_negated</code></td><td><code>false</code></td><td>The sentence did not explicitly deny it</td></tr>
+  <tr><td><code>duration</code></td><td>3 days</td><td>A duration was stated</td></tr>
+  <tr><td><code>source_text</code></td><td>“cough”</td><td>Text that supports the extracted item</td></tr></table>
+  <p>This is similar to filling in a form. Each box has one meaning. A later
+  step can check whether a value is missing without rereading the whole
+  sentence.</p>
+  <div class="warning">A field being absent from the form means “not supplied
+  or not extracted.” It does not mean the real-world fact is false.</div>
+  <p><b>Why structure?</b> Typed fields support validation, calculations, and
+  tests. They also make uncertainty easier to preserve: ambiguity and
+  contradiction can be recorded explicitly instead of hidden in a summary.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 8 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part I · Seeing the whole system</p><h1>Prepare the classroom demo</h1>
+  <p>MEDNEX is run from the project folder. Use a fictional demonstration
+  input only; do not enter a real person's information.</p>
+  <div class="code">python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python app.py</div>
+  <p>The first command creates a separate Python environment for project
+  packages. The second activates it in PowerShell. The third installs the
+  package versions listed by the project. The fourth starts the local server.</p>
+  <p>Open the loopback address printed in the terminal, usually
+  <code>http://127.0.0.1:8000</code>. “Loopback” means the address points back
+  to this computer. Stop the process with Ctrl+C.</p>
+  <div class="box"><b>Before class:</b> install dependencies once, start the
+  server, wait for the local URL, and open the page. If the page cannot load,
+  check the terminal for the server message before changing code.</div>
+  <p>Why use a virtual environment? It keeps this project's packages separate
+  from other Python projects. The application uses Python, Pydantic,
+  NetworkX, scikit-learn, Matplotlib, and pytest. The web page uses ordinary
+  HTML, CSS, and JavaScript.</p>
+  <div class="footer"><span>Part I · Seeing the whole system</span><span>Page 9 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Instructions, print, and variables</h1>
+  <p>Python is a programming language: a way to write instructions a computer
+  can run. MEDNEX uses it for the local server, parsing, data checks,
+  calculations, and tests. Read code one line at a time. Ask what value is
+  here before a line, what it does, and what value exists after.</p>
+  <p>A Python program is a sequence of instructions. Python reads and runs
+  them. <code>print</code> asks Python to display something in the terminal.</p>
+  <div class="code">print("Hello, MEDNEX!")
+print(2 + 3)</div>
+  <p>The first line displays words. The quotation marks show Python that the
+  content is text. The second line calculates a sum and displays the result,
+  <code>5</code>.</p>
+  <p><b>Why begin here?</b> A visible result helps a new programmer confirm
+  that a program ran and understand the order of instructions. The real
+  MEDNEX server prints its local web address when it starts.</p>
+  <div class="box"><b>Try it mentally:</b> If you put
+  <code>print("Start")</code> and then <code>print("Finish")</code>, what
+  appears first? The first instruction runs first: Start, then Finish.</div>
+  <p>Words inside quotes are a <b>string</b>. A number like <code>5</code>
+  without quotes is numeric data. The computer can add numeric values, while
+  quoted text is treated as characters.</p>
+  <p>In Python, capitalization matters. <code>print</code> works;
+  <code>Print</code> is a different name and normally causes an error.</p>
+  <p>A variable is a name connected to a value. Imagine a labeled box: the
+  label helps you use the value later.</p>
+  <div class="code">topic = "cough"
+days = 3
+print(topic)
+print(days)</div>
+  <p>Here <code>topic</code> points to text and <code>days</code> points to a
+  number. The equals sign in an assignment means “store this value under this
+  name.” It is not the same as a math equation asserting two sides are always
+  equal.</p>
+  <p>MEDNEX uses names such as <code>message</code>,
+  <code>extraction</code>, and <code>comfort_steps</code>. Meaningful names
+  make code easier to read, especially when one value is passed between
+  several functions.</p>
+  <div class="box"><b>Good naming:</b> <code>question_count = 2</code> tells
+  a reader more than <code>x = 2</code>. Python names are case-sensitive:
+  <code>topic</code> and <code>Topic</code> are different names.</div>
+  <p>Variables can be updated. If <code>days = 3</code> is followed by
+  <code>days = days + 1</code>, Python calculates the right side (4) and stores
+  it under <code>days</code>. Capitalization matters:
+  <code>print</code> and <code>Print</code> are different names.</p>
+  <p>Python uses indentation to show which lines belong inside a function,
+  condition, or loop. A colon commonly begins a block.</p>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 11 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Numbers, percentages, and text strings</h1>
+  <p>Python can do arithmetic. A decimal such as 0.8 is eight tenths. To turn
+  it into a percentage, multiply by 100 and add the percent sign:
+  <b>0.8 × 100 = 80%</b>.</p>
+  <table><tr><th>Decimal</th><th>Fraction</th><th>Percent</th></tr>
+  <tr><td>0.5</td><td>5 out of 10</td><td>50%</td></tr>
+  <tr><td>0.25</td><td>25 out of 100</td><td>25%</td></tr>
+  <tr><td>0.8</td><td>8 out of 10</td><td>80%</td></tr></table>
+  <p>When probabilities describe all possible outcomes, their total should be
+  1, or 100%. For example, 0.4 + 0.35 + 0.25 = 1. Those are the three starting
+  values in MEDNEX's synthetic Bayesian example.</p>
+  <p><b>Multiplication:</b> “0.4 times 0.8” can be read as taking 80% of 0.4.
+  The result is 0.32. <b>Division:</b> “0.24 divided by 0.3” asks how many
+  parts of size 0.3 fit into 0.24; the result is 0.8.</p>
+  <div class="warning">These conversions explain the arithmetic only. A
+  project number marked as a probability is not automatically a trustworthy
+  real-world probability.</div>
+  <p>A string stores text. MEDNEX receives a user's message as a string, checks
+  it, and sometimes combines pieces into a response.</p>
+  <div class="code">name = "cough"
+sentence = "I can share information about " + name + "."
+print(sentence)</div>
+  <p>The plus sign between strings joins them; it does not add their meaning.
+  The output is a longer string. MEDNEX also uses formatted strings, which put
+  a named value inside a sentence.</p>
+  <div class="code">topic = "cough"
+sentence = f"General information about {topic}."
+print(sentence)</div>
+  <p>The letter <code>f</code> before the opening quote tells Python to
+  replace the braces with the value of the variable. This is one way
+  deterministic templates fill in a topic name.</p>
+  <p><b>Why not ask Python to write the rest?</b> Python is following a
+  sentence the developer already wrote. It is not generating a new paragraph
+  based on broad language understanding.</p>
+  <div class="box"><b>Careful:</b> Punctuation and grammar must make sense
+  around the inserted value. A template that says “a [symptom]” may sound
+  wrong when the label starts with a vowel. Template design needs examples
+  and tests.</div>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 12 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Lists and dictionaries</h1>
+  <p>A list holds several values in a particular order. MEDNEX uses lists for
+  symptoms, comfort steps, and questions.</p>
+  <div class="code">symptoms = ["cough", "fever"]
+print(symptoms[0])
+print(len(symptoms))</div>
+  <p>The first item is at position 0, not 1. This is called zero-based
+  indexing. The code displays <code>cough</code>, then <code>2</code>. The
+  built-in <code>len</code> function counts the items.</p>
+  <p>A list can be empty, which means there are no recorded items. That is
+  different from a list containing the word “absent.” The list
+  <code>[]</code> says there is no entry; <code>["absent"]</code> contains an
+  explicit value.</p>
+  <p>In MEDNEX, a list of extracted facts can be looped over. Another part of
+  the code may then look at each item and decide whether it is present,
+  negated, ambiguous, or conflicting.</p>
+  <div class="box"><b>Mini-check:</b> In
+  <code>steps = ["rest", "water", "ask"]</code>, what is
+  <code>steps[1]</code>? It is <code>"water"</code>, the second item.</div>
+  <p>A dictionary stores values under keys. It is like a collection of named
+  drawers: ask for one key and get its value.</p>
+  <div class="code">topic = {
+    "label": "cough",
+    "comfort_steps": ["rest", "drink fluids"]
+}
+print(topic["label"])</div>
+  <p>The dictionary has keys <code>label</code> and
+  <code>comfort_steps</code>. The first maps to a string; the second maps to a
+  list. JSON files use a similar key-and-value structure, which is why they
+  work well for MEDNEX's curated topics and parameters.</p>
+  <p>A dictionary does not mean the program understands the subject. It means
+  information has been stored under a predictable name. Code still needs to
+  decide what those names mean and how to use them.</p>
+  <p>For example, the general guidance file has a topic identifier, a display
+  label, and lists of prepared content. The response function retrieves the
+  topic and uses its fields.</p>
+  <div class="box"><b>Beginner distinction:</b> A list is useful when order
+  matters; a dictionary is useful when you want to retrieve a value by a
+  meaningful key.</div>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 13 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Booleans, if-statements, and loops</h1>
+  <p>A Boolean is either <code>True</code> or <code>False</code>. A program
+  uses an <code>if</code> statement to choose a path based on a condition.</p>
+  <div class="code">is_negated = False
+if is_negated:
+    print("The symptom was denied.")
+else:
+    print("The symptom was not marked as denied.")</div>
+  <p>Because <code>is_negated</code> is false, the <code>else</code> branch
+  runs. The indented lines belong to their branch. The colon and indentation
+  are part of Python's syntax.</p>
+  <p>MEDNEX uses conditions for important gates. For example, if safety says
+  the simulation must stop, it returns a boundary response. If extraction is
+  contradictory, the agent avoids making a clean summary.</p>
+  <p><b>Why use a Boolean?</b> A clearly named yes/no value is easier to
+  validate than a sentence such as “maybe the person perhaps does not have
+  this.” When a fact is not clear, the parser should record uncertainty rather
+  than force True or False.</p>
+  <p>A loop repeats instructions for each item in a collection. This avoids
+  copying the same lines again and again.</p>
+  <div class="code">steps = ["rest", "drink fluids"]
+for step in steps:
+    print("- " + step)</div>
+  <p>First, <code>step</code> becomes <code>"rest"</code> and Python prints it.
+  Next, <code>step</code> becomes <code>"drink fluids"</code> and Python prints
+  that. When the list ends, the loop ends.</p>
+  <p>The general chat loops through matching guidance topics to gather their
+  comfort information. The report formatter loops through facts to make
+  readable lines.</p>
+  <p>A loop has a start, a repeated body, and a stopping point. A bug in the
+  stopping point can repeat forever, so programmers test loops with small
+  examples.</p>
+  <div class="box"><b>Try it:</b> What happens if
+  <code>steps = []</code>? The loop body runs zero times because there are no
+  items. No bullet is printed.</div>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 14 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Functions: named mini-programs</h1>
+  <p>A function is a named set of instructions. It can accept inputs, do work,
+  and return a result.</p>
+  <div class="code">def greeting(topic):
+    return f"General information about {topic}."
+
+answer = greeting("cough")
+print(answer)</div>
+  <p><code>def</code> begins a function definition. <code>topic</code> is an
+  input parameter. <code>return</code> sends a value back to the code that
+  called the function. Calling <code>greeting("cough")</code> runs the body
+  using that input.</p>
+  <p>MEDNEX functions have focused jobs. A parser extracts facts. A guidance
+  function builds a reply. A validator checks a case. Small jobs are easier to
+  explain and test than one giant function that does everything.</p>
+  <p>Functions can call other functions. That is how a route can check a
+  request, call a chat function, then serialize a result.</p>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 15 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part II · Python from the beginning</p><h1>Types, models, and errors</h1>
+  <p>A type describes what kind of value is expected: text, number, Boolean,
+  list, or a structured model. Python allows flexible values, but MEDNEX uses
+  type hints and Pydantic models to make expectations clearer.</p>
+  <div class="code">def add_days(days: int) -> int:
+    return days + 1</div>
+  <p><code>int</code> means whole-number input; the arrow says the function
+  should return a whole number. A type hint is a signpost for readers and
+  checking tools. It does not by itself make every input safe.</p>
+  <p>Pydantic models add runtime checks. For example, a response model can
+  require a status to be one of a small set of allowed words and require
+  fields to have the expected types.</p>
+  <p><b>Why types?</b> They make data contracts visible. If a response needs a
+  list of comfort steps, the data model can say it is a list of strings. The
+  model can reject an unexpected shape instead of letting the error travel
+  farther.</p>
+  <div class="warning">Type-valid data is not automatically true, useful, or
+  safe. A perfectly valid number can still be an invented teaching number.</div>
+  <p>An error message tells you that the program could not complete an
+  instruction. Errors are not proof that you are bad at programming. They are
+  information about what the computer could not do.</p>
+  <table><tr><th>Error type</th><th>Simple example</th><th>Likely clue</th></tr>
+  <tr><td>Syntax error</td><td>Missing closing quote</td><td>Python could not read the instruction</td></tr>
+  <tr><td>Type error</td><td>Add text to a number</td><td>These value types do not fit the operation</td></tr>
+  <tr><td>Value error</td><td>Convert “hello” to a number</td><td>The type exists, but this value is unacceptable</td></tr>
+  <tr><td>File error</td><td>Open a missing data file</td><td>The path or file is unavailable</td></tr></table>
+  <p>MEDNEX validates JSON data as it loads. If required fields or values are
+  wrong, validation raises an explicit error. That is preferable to silently
+  pretending the data loaded correctly.</p>
+  <p><b>Beginner debugging method:</b> read the last line of the error first,
+  find the file and line mentioned, inspect the nearby code, and change one
+  thing at a time. Then rerun the smallest relevant test.</p>
+  <div class="footer"><span>Part II · Python from the beginning</span><span>Page 21 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>The browser's job</h1>
+  <p>The browser shows the interface: the title, mode buttons, message area,
+  and text box. JavaScript reads the user's message and sends it to the
+  selected endpoint.</p>
+  <div class="code">POST /api/chat
+Content-Type: application/json
+
+{"message": "Please give general information about cough."}</div>
+  <p><code>POST</code> means the browser is sending data to the server.
+  <code>Content-Type</code> says what format is in the request body. The JSON
+  object uses a key called <code>message</code> and a text value.</p>
+  <p>The browser is not the part that decides which topic to select. It mostly
+  sends the input and displays the returned response text. Keeping the
+  interface separate from the reasoning code makes each part easier to
+  change.</p>
+  <p>When the server returns an error, the page can show an error state. When
+  the server is working, the page may show a temporary loading indicator.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 23 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>The server's job</h1>
+  <p>The Python server listens for local requests. It serves the page files
+  and handles a small set of approved routes. For the General Information
+  mode, the route is <code>/api/chat</code>.</p>
+  <p>Before calling response logic, the server checks that the route exists,
+  the body size is allowed, the request says it contains JSON, and the decoded
+  data has the expected shape.</p>
+  <p>Why do these checks matter? A function should not have to guess whether
+  the incoming value is text, a number, a missing object, or an enormous
+  request. Early checks make failures clearer and limit the work the server
+  needs to do.</p>
+  <div class="box"><b>Request → function → response:</b> The server receives a
+  dictionary-like JSON object, checks that <code>message</code> is text, and
+  calls the chat function with that text.</div>
+  <p>The server binds to <code>127.0.0.1</code>, the loopback address. This
+  demo is designed for local classroom use, not public internet deployment.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 24 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>JSON is a labeled message</h1>
+  <p>JSON stands for JavaScript Object Notation. Despite its name, Python can
+  read and write it too. It is text with familiar structures such as objects,
+  lists, numbers, and strings.</p>
+  <div class="code">{
+  "status": "needs_clarification",
+  "response": "Please describe a supported topic.",
+  "understood": []
+}</div>
+  <p>The braces make an object. Each key is a label; each value is the data
+  for that label. A list uses square brackets. Double quotes mark text.</p>
+  <p>JSON gives the browser a predictable response shape. The browser can read
+  <code>response</code> and display it, while tests can inspect
+  <code>status</code> or <code>understood</code>.</p>
+  <p>A JSON response is structured, even if one of its fields contains a
+  paragraph. Structure is about named fields; grammar is about how words fit
+  together. MEDNEX has structured fields and fixed prose templates, not an
+  automatic grammar or language generator.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 25 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>Templates create the sentences</h1>
+  <p>A template is a sentence frame written before the user sends a message.
+  The program fills a placeholder with a selected label or content string.</p>
+  <div class="code">topic_label = "cough"
+opening = f"General information about {topic_label}."
+
+# The result is assembled, not newly authored:
+# "General information about cough."</div>
+  <p>Real MEDNEX code has branches for safety, negation, clarification, and
+  matching topics. It also joins prewritten paragraphs and list items. Those
+  branches decide which prepared text is appropriate to show.</p>
+  <p><b>Why templates?</b> They are easy to review, test, and keep consistent.
+  They also make the response vocabulary limited. If labels do not fit the
+  sentence frame, grammar may sound awkward. That is a template design
+  challenge, not evidence that a hidden model wrote the answer.</p>
+  <p>In the Reasoning Agent, the user's actual parsed symptom names and
+  guidance library are used. Synthetic probability values do not appear in
+  the plain-English answer.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 26 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>Prepared guidance data</h1>
+  <p>The file <code>general_guidance.json</code> stores a small collection of
+  topics. A topic has an identifier and label plus prepared lists for general
+  comfort, when to seek professional help, and selected urgent signs.</p>
+  <p>Why store text in data instead of burying it in code? A clearly structured
+  data file makes the content easier to review and update. The code can use
+  the same assembly steps for multiple topics.</p>
+  <p>There are ten general guidance topics. The parser can recognize more
+  symptom words than the guidance file supports. Recognition does not
+  guarantee that a guidance entry exists.</p>
+  <div class="warning">The guidance is an educational example, not a clinical
+  guideline. The project does not claim that the list is comprehensive or
+  personalized.</div>
+  <p>The topic has aliases in its JSON entry, but the current chat selects
+  topics by the canonical name returned by the parser. The parser's actual
+  aliases are defined separately in <code>nlp/patterns.py</code>.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 27 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>Structured response versus grammar</h1>
+  <p>Imagine a response object with fields for status, response text, topics
+  understood, and lists of guidance. The fields are structured. The sentence
+  inside <code>response</code> is made from written text.</p>
+  <div class="two"><div class="box"><b>Structure asks:</b><br>Which field stores the response? What status was chosen? Which topic was matched?</div><div class="box"><b>Grammar asks:</b><br>Does the sentence sound natural? Do subjects and verbs fit together? Is punctuation correct?</div></div>
+  <p>MEDNEX addresses structure with Python models and JSON. It addresses
+  grammar with prewritten sentence frames and labels. It does not use a
+  natural-language grammar engine to invent a sentence for every possible
+  input.</p>
+  <p>A reader should therefore expect predictable sections, not a flexible
+  conversation. A response can be structured correctly yet sound slightly
+  unnatural. Tests can check exact wording for known cases, but good prose
+  still needs human review.</p>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 28 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>Try the General Information chat</h1>
+  <p>Use a general, non-personal request such as:</p>
+  <div class="code">Please give general information about cough.</div>
+  <p>Observe that the response selects a supported topic, displays general
+  educational content, and does not provide a diagnosis, medicine, or dose.
+  Then try a supported combination such as “Tell me general information
+  about cough and fever.” The exact phrasing must match what the parser knows.</p>
+  <p>Try a question about a topic outside the supported list. The system may
+  ask for clarification rather than invent content. Try an explicitly negated
+  phrase; the parser may retain it as not present.</p>
+  <p>Do not use “I have a cough” in this demo. The safety checks recognize
+  some personal-health language and stop rather than provide individualized
+  care. The system is not designed to assess that message.</p>
+  <div class="box"><b>Classroom observation checklist:</b> Which route was
+  used? What topic was recognized? What is fixed wording? What was returned
+  as data? What happened when the wording was not supported?</div>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 29 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part III · From browser message to reply</p><h1>When wording is not recognized</h1>
+  <p>Pattern-based programs need specific words and phrases. An alias is an
+  extra phrase that the program maps to the same canonical name. For example,
+  several everyday phrases are mapped to a single symptom name.</p>
+  <p>MEDNEX includes a finite set of aliases and a small set of spelling
+  variants. It does not contain a general spell checker. A typo not in the
+  list can fail to match.</p>
+  <p><b>Why ask for clarification?</b> If the code cannot match a supported
+  topic, it is safer and more honest to say so than to pretend it knows which
+  content applies. In software terms, “I do not know” is a valid result.</p>
+  <p>Different paths have different fallback behavior. The general chat can
+  ask for a supported topic. The agent builder can refuse a summary for
+  unsupported or ambiguous content. The reasoning planner can stop uncertain.</p>
+  <div class="warning">A parser match is not proof of correct understanding.
+  The word “cold,” for example, can have meanings beyond the exact topic the
+  demo intended. Context handling is limited.</div>
+  <div class="footer"><span>Part III · From browser message to reply</span><span>Page 30 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>What is a pattern?</h1>
+  <p>A pattern describes text the program knows how to find. A regular
+  expression is a compact pattern language. For example, a pattern can look
+  for a number followed by a time unit such as “days” or “hours.”</p>
+  <div class="code">"cough"       → canonical symptom: cough
+"three days"  → amount: 3, unit: days
+"no fever"    → symptom: fever, marked negated</div>
+  <p>MEDNEX's parser stores symptom aliases and measurement patterns in
+  <code>nlp/patterns.py</code>. It normalizes some forms, uses case-insensitive
+  matches, and then creates structured models.</p>
+  <p><b>Why patterns?</b> They are understandable, testable, and predictable
+  for the cases they cover. Their limitation is the same: if the words differ
+  from the known pattern, the program may not find them.</p>
+  <p>Matching a word is a technical event. Correctly understanding its intent
+  requires context. The parser uses only limited rules for context, so its
+  confidence should never be overstated.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 32 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Normalize before matching</h1>
+  <p>Normalization makes a few known variations more consistent. MEDNEX
+  lowercases text and replaces some punctuation forms. It also maps certain
+  aliases, such as a supported alternate measurement label, to a canonical
+  word.</p>
+  <p>For example, the normalizer may turn uppercase letters into lowercase so
+  the phrase “COUGH” can be matched by a case-insensitive pattern just like
+  “cough.” It also includes a small number of phrase substitutions.</p>
+  <p><b>Why normalize?</b> Without it, the same word typed with different
+  capitalization or a known alias could require duplicate rules. Normalizing
+  reduces unnecessary variation.</p>
+  <div class="warning">Normalization is limited. It does not understand
+  synonyms in general, repair arbitrary spelling, or determine the meaning
+  of a whole paragraph. It can also change context if rules are too broad.</div>
+  <p>After normalization, the parser uses specific patterns to find supported
+  symptoms, durations, and measurements. It preserves source text for
+  extracted observations so a reader can see which part of the input produced
+  a value.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 33 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Reading a regular expression gently</h1>
+  <p>A regular expression (often called regex) is a tiny pattern language.
+  The following example is a simplified illustration, not the exact full
+  MEDNEX pattern:</p>
+  <div class="code">\b(cough|coughing)\b</div>
+  <ul><li><code>\b</code> asks for a word boundary.</li>
+  <li><code>( ... )</code> groups alternatives.</li>
+  <li><code>|</code> means “or.”</li>
+  <li><code>cough</code> and <code>coughing</code> are the accepted words.</li>
+  <li>The final <code>\b</code> helps avoid matching those letters inside a longer unrelated word.</li></ul>
+  <p>The real code safely escapes the known aliases before joining them into
+  patterns. It sorts longer aliases first so an overlapping long phrase can
+  be matched before its shorter part.</p>
+  <p>Regex is useful for finite patterns, such as “a number followed by bpm.”
+  It is not a substitute for understanding meaning. “No cough” and “cough”
+  share the same symptom word; a separate negation rule must examine nearby
+  text.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 34 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Numbers and units</h1>
+  <p>The parser can recognize selected formats for age, duration, temperature,
+  heart rate, breathing rate, oxygen saturation, and blood pressure. It also
+  converts some number words to numeric values: for instance, “three” can
+  become 3.</p>
+  <p>Why require units and labels? The number 96 by itself is ambiguous. A
+  recognized phrase like “oxygen saturation is 96 percent” gives the parser
+  more clues about which field to fill.</p>
+  <p>MEDNEX has typed models that validate basic shapes. For example,
+  oxygen saturation is constrained to a range from 0 to 100. Blood-pressure
+  fields must be supplied as a pair.</p>
+  <div class="warning">A value passing a data-type check does not mean it is
+  medically plausible, measured correctly, or interpreted safely. This
+  parser's extraction is an educational software example.</div>
+  <p>Each extracted observation records its name, value, source text, and
+  source type. This lets later code distinguish a value parsed from a sentence
+  from a value supplied as structured data.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 35 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Negation: “no” changes the meaning</h1>
+  <p>Negation means denying a statement. “Cough” and “no cough” contain the
+  same topic word but communicate different states. MEDNEX searches a nearby
+  part of the sentence for known negation phrases and stores a Boolean marker.</p>
+  <div class="code">"cough"     → name="cough", is_negated=False
+"no cough"  → name="cough", is_negated=True</div>
+  <p>Why store both the name and the marker? Different parts of the program
+  need to know both what topic was mentioned and whether the text said it was
+  absent.</p>
+  <p>The parser also handles some contrast words such as “but” to limit the
+  scope of negation. Still, this is a simple window-based method. Complex
+  sentences can be misunderstood.</p>
+  <div class="box"><b>Test idea:</b> Compare “no fever, but cough” with “fever
+  and cough.” Verify that the program does not apply the first negation to
+  both topics.</div>
+  <p>If both present and absent versions of a symptom appear, the system can
+  record a contradiction. It should not silently select whichever version is
+  more convenient.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 36 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Ambiguous and unsupported text</h1>
+  <p>Some wording is unclear: “maybe a cough” is not the same as a direct
+  report. Some wording may also contain concepts outside the parser's
+  supported vocabulary. MEDNEX records selected ambiguous and unsupported
+  statements so downstream steps can avoid treating them as certain facts.</p>
+  <p><b>Why keep a list of uncertainty?</b> If a program discards hard-to-parse
+  content, a later component might mistake the remaining small set of facts
+  for a complete story. Recording what could not be understood makes the gap
+  visible.</p>
+  <p>The parser has an extraction clarity indicator from 0 to 1. This number
+  describes the clarity of deterministic text extraction under its rules. It
+  is not a probability that the extracted facts are medically correct.</p>
+  <div class="warning">Do not translate “90% extraction clarity” into “90%
+  sure of the health result.” Those are completely different claims.</div>
+  <p>Unsupported or ambiguous agent inputs lead to an uncertain result or a
+  response asking for a clearer fictional description. The program does not
+  have to force every sentence into a known field.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 37 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Contradictions are not averaged away</h1>
+  <p>A contradiction occurs when the same fact is represented in opposing
+  ways—for example, a symptom is both present and absent. The parser compares
+  symptom states and selected observation values to find some such conflicts.</p>
+  <p>Why not choose one statement? MEDNEX has no reliable basis for deciding
+  which one is correct. Picking one silently would hide a data-quality
+  problem. The safer software behavior is to surface the conflict and stop
+  the educational reasoning path as uncertain.</p>
+  <div class="code">Input: "A fictional person has fever but has no fever."
+Result: contradiction recorded
+Planner: UNCERTAIN
+User response: asks to correct the fictional description</div>
+  <p>This is a data consistency decision, not a clinical judgment. The
+  contradiction says the text cannot be interpreted unambiguously under the
+  program's supported rules.</p>
+  <p>Contradiction checks themselves are limited. They only cover the fact
+  types and wording the parser knows how to compare.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 38 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IV · Turning text into facts</p><h1>Follow one sentence into fields</h1>
+  <p>Use this fictional classroom sentence:</p>
+  <div class="code">A fictional 45-year-old person has a dry cough for three days.
+Temperature is 38.5 degrees Celsius.</div>
+  <p>The parser looks for separate patterns, not one magical “understanding”
+  operation. It can match a number with “year-old” for age, a supported cough
+  alias, a duration amount and unit, and a labeled temperature with a unit.</p>
+  <table><tr><th>What the text says</th><th>Possible structured field</th></tr>
+  <tr><td>45-year-old</td><td>age_years = 45</td></tr>
+  <tr><td>cough</td><td>symptom name = cough; not negated</td></tr>
+  <tr><td>three days</td><td>duration amount = 3; unit = days</td></tr>
+  <tr><td>38.5 degrees Celsius</td><td>temperature value = 38.5; source text retained</td></tr></table>
+  <p>This walkthrough illustrates the types of facts the parser is designed to
+  extract. Exact parsing depends on the specific sentence structure and
+  patterns in the code.</p>
+  <p>Fields not stated—such as heart rate—remain missing. The parser does not
+  invent them.</p>
+  <div class="footer"><span>Part IV · Turning text into facts</span><span>Page 39 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>Input safety checks</h1>
+  <p>The safety module looks for a finite set of phrases associated with
+  personal health, direct care requests, and selected urgent language. If a
+  boundary is triggered, the agent does not continue its educational
+  evaluation.</p>
+  <p>Why stop? The demo is intended for fictional exercises, not real requests
+  for care. A fixed boundary message can direct users away from treating the
+  program as a medical service.</p>
+  <p>The web server also requires the word “fictional” or “synthetic” in
+  Reasoning Agent input. That requirement states the intended scope. It cannot
+  verify the truthfulness of a user's statement.</p>
+  <div class="warning">Phrase matching can miss unexpected expressions or
+  react to a phrase in a context it did not anticipate. It is not an emergency
+  detector or a clinically validated safety mechanism.</div>
+  <p>Safety checks are a gate: the software either continues or returns a
+  boundary response. They are not a score saying how risky a case is.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 41 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>Validation: check the shape</h1>
+  <p>Validation asks whether data meets required rules. It can check that text
+  is not empty, does not exceed a length limit, and produced at least one
+  supported fact. It can also list ambiguity, unsupported wording, and
+  contradictions.</p>
+  <p>Why validate separately from parsing? Parsing tries to find facts.
+  Validation decides whether the extracted result is acceptable for the next
+  step. Separating these jobs makes failures easier to explain and test.</p>
+  <div class="code">Input text → parse facts → validate result
+                         ├─ valid: continue
+                         └─ invalid: stop as uncertain</div>
+  <p>Validation checks form and consistency under explicit rules; it does not
+  establish that a statement is true. A correctly formatted fictional
+  measurement remains a fictional input.</p>
+  <p>If a validation gate fails, MEDNEX returns issues rather than trying to
+  make an impressive-looking answer from weak data.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 42 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>What is a knowledge graph?</h1>
+  <p>A graph is a set of nodes connected by edges. A node is a named item; an
+  edge is a named relationship between two items. MEDNEX uses a directed
+  graph: each edge has a source and a destination.</p>
+  <div class="code">[symptom: cough] ──illustrative link──> [synthetic pattern alpha]</div>
+  <p>The graph file contains synthetic symptom, observation, candidate-label,
+  question, investigation-concept, and data-quality nodes. When a fact is
+  extracted, the graph engine looks for a matching node, follows certain
+  outgoing links, and records which links it visited.</p>
+  <p><b>Why a graph?</b> It demonstrates connected information and makes it
+  possible to return an explanation trail: “this node was visited because
+  this extracted fact matched it.”</p>
+  <div class="warning">A graph link is not proof. In MEDNEX, graph associations
+  are explicitly synthetic and are not clinical evidence, a ranking, or a
+  probability.</div>
+  <p>The graph also validates that edge types connect the expected categories,
+  such as symptom to candidate label. This checks data consistency at load
+  time.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 43 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>Graph walking, step by step</h1>
+  <ol><li>Read the extracted facts, such as “cough present.”</li>
+  <li>Convert a fact name to the graph's node identifier.</li>
+  <li>If the node exists, inspect its outgoing edges.</li>
+  <li>Record each edge and why it was considered.</li>
+  <li>Collect connected synthetic candidate nodes.</li>
+  <li>Report missing nodes rather than silently making them up.</li></ol>
+  <p>This is often called graph traversal or graph investigation. The engine
+  follows only the relationships configured in the data. It does not search
+  the internet or learn new relationships while running.</p>
+  <p>Negation changes how evidence is described. A negated symptom is treated
+  as contextual in selected graph outputs rather than as positive support.
+  That is an explicit software rule.</p>
+  <p>Why record visited edges? So an educational report can show its route.
+  Transparency helps a student inspect the dataset and detect surprising
+  connections.</p>
+  <div class="box"><b>Class exercise:</b> Draw three circles for two symptom
+  nodes and one synthetic candidate, then draw arrows matching the bundled
+  graph. Ask which arrows are visited when one symptom is present.</div>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 44 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>If/then rules</h1>
+  <p>A production rule is an instruction in the form “if these conditions
+  match, then add a result.” MEDNEX's symbolic engine loads a few such
+  synthetic rules from JSON.</p>
+  <div class="equation">IF condition A AND condition B are true<br>THEN add a named evidence flag</div>
+  <p>For example, one teaching rule says that if cough is explicitly present
+  and fever is explicitly present, add a flag associated with one synthetic
+  pattern. The output is a rule trace that records which conditions matched.</p>
+  <p><b>Why use symbolic rules?</b> They are easy to inspect. A person can read
+  the conditions and see what the program checked. They show how explicit
+  logic differs from a learned model.</p>
+  <p>Each condition can be matched, missing, or not matched. “Missing” is
+  important: the program did not receive that fact. It is not automatically a
+  negative match.</p>
+  <div class="warning">The example rules and signals are invented teaching
+  content. They are not clinical rules and do not establish diagnoses.</div>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 45 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>Forward chaining</h1>
+  <p>Forward chaining means repeatedly applying rules when new information
+  becomes available. A first rule can create a flag; a later rule can use that
+  flag as one of its conditions.</p>
+  <div class="code">Round 1: cough + fever → create alpha_supported
+Round 2: alpha_supported + headache → create beta_supported
+Round 3: no new flags → stop</div>
+  <p>The engine tracks rules that have fired so it does not fire the same rule
+  again and again. It repeats while at least one new flag is added. When a
+  complete pass adds nothing, the process is finished.</p>
+  <p>Why do this? It demonstrates how small explicit rules can build on other
+  explicit results. It also creates a trace that can explain the chain.</p>
+  <p>A second rule may create conflicting evidence for the same synthetic
+  signal. The engine stores supporting and conflicting rules separately
+  rather than deleting one side.</p>
+  <div class="box"><b>Important:</b> Forward chaining is a method of applying
+  written rules. The name does not make the rule set medically knowledgeable.</div>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 46 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>The agent session</h1>
+  <p>An agent session stores the fictional case, follow-up answers, question
+  count, previous synthetic outputs, and other state. Think of it as a folder
+  that keeps the conversation's educational context between turns.</p>
+  <p>When a question is answered, the server retrieves the session, records the
+  answer under the current question, and runs the agent cycle again. The
+  session is held in local memory, not written to a permanent database. Old
+  sessions are capped.</p>
+  <p><b>Why keep state?</b> Without it, the program would not know which
+  question was answered or which questions were already asked. State allows
+  the next turn to build on the prior turn.</p>
+  <p>The agent closes sessions after completion or a safety stop. Trying to
+  answer a session with no pending question is rejected rather than silently
+  changing the case.</p>
+  <div class="warning">This session mechanism is a classroom prototype. It is
+  not a secure medical record or production account system.</div>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 47 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>Follow-up answers are interpreted narrowly</h1>
+  <p>The agent can map simple answer phrases into states such as present,
+  absent, reported, not reported, or unknown. It uses explicit lists of
+  positive, negative, and uncertain words.</p>
+  <p>For a symptom question, “yes” may map to present; “no” may map to absent;
+  “not sure” maps to unknown. For a measurement question, “no” may mean
+  “measurement not reported,” which is different from saying the measurement
+  was zero.</p>
+  <p>Why have an unknown state? Real text can be unclear. Forcing every answer
+  into yes or no would create false certainty. An unknown answer can be
+  preserved and may lead to an uncertain ending.</p>
+  <p>The system uses a limited pattern of words. A complicated answer can be
+  classified as unknown, even if a human could interpret it. This is another
+  example of deterministic but limited language handling.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 48 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>One agent cycle</h1>
+  <div class="code">1. Check safety.
+2. Parse the fictional text.
+3. Add follow-up answers to the extracted state.
+4. Validate the facts.
+5. Run graph, symbolic, Bayesian, and eligible ML steps.
+6. Rank unasked questions.
+7. Let the planner choose a state.
+8. Build an explainability report.
+9. Build a fixed user-facing answer.</div>
+  <p>The order matters. Safety comes before educational reasoning. Validation
+  prevents some unsuitable input from entering later components. The planner
+  uses the results to ask one question, stop uncertain, or finish.</p>
+  <p>Why rerun after an answer? Because a new fact can change the synthetic
+  calculations and which questions remain unasked. The agent calculates a
+  new turn from the updated state.</p>
+  <p>The web answer is built from the turn's actual extracted symptoms and
+  curated guidance. It does not summarize every internal computation. This
+  protects the intended simple interface but also means the response is not a
+  technical report.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 49 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part V · Guardrails and logic</p><h1>The planner's decision order</h1>
+  <p>The planner is a set of gates, not a prediction model. It checks safety,
+  validity, contradictions, ambiguity, available questions, and the
+  follow-up limit.</p>
+  <table><tr><th>Condition</th><th>Planner result</th></tr>
+  <tr><td>Safety boundary is active</td><td>Stop at professional-assessment boundary</td></tr>
+  <tr><td>Input is invalid or facts conflict</td><td>Stop as uncertain</td></tr>
+  <tr><td>A useful modeled question remains</td><td>Ask the top-ranked question, within the limit</td></tr>
+  <tr><td>Question limit reached with questions remaining</td><td>Stop as uncertain</td></tr>
+  <tr><td>No positive-gain questions remain and outputs exist</td><td>Complete the educational calculation</td></tr></table>
+  <p>Why a decision order? If several conditions apply, the program needs a
+  predictable rule for which one takes priority. Safety and data quality must
+  be checked before asking another question.</p>
+  <p>The planner does not choose which synthetic label is “the answer.” Even
+  at completion, it says uncertainty remains. Its output describes the next
+  software action, not a patient recommendation.</p>
+  <div class="footer"><span>Part V · Guardrails and logic</span><span>Page 50 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>What is probability?</h1>
+  <p>Probability is a number used to describe how much weight a calculation
+  assigns to an outcome. It ranges from 0 to 1. Multiply by 100 to write it as
+  a percentage.</p>
+  <div class="equation">0.25 × 100 = 25%</div>
+  <p>If there are three outcomes that cover all possibilities, their
+  probabilities must add to 1. For example, 0.4 + 0.35 + 0.25 = 1. The
+  values can be read as 40%, 35%, and 25%, which total 100%.</p>
+  <p>Why does the total matter? If the possibilities are meant to be a complete
+  set, anything less than 100% leaves unexplained weight, and anything more
+  than 100% counts too much weight. MEDNEX validates that priors sum to 1 and
+  that posterior values sum to 1.</p>
+  <p>That is only a math rule. It does not prove that the possibilities are
+  complete or that the numbers are true in real life.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 52 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Prior: the starting value</h1>
+  <p>A prior is the starting probability assigned to a candidate before
+  adding the evidence used in a calculation. Imagine a board with 100 tokens:
+  40 tokens labeled Alpha, 35 Beta, and 25 Other. Those counts represent the
+  starting values 0.40, 0.35, and 0.25.</p>
+  <p>In a real scientific analysis, priors need an appropriate evidence
+  basis. In MEDNEX, these are explicitly invented teaching values. Their
+  purpose is to make the arithmetic visible.</p>
+  <p>Why call it a prior? It comes before the modeled evidence update. It does
+  not mean “a doctor's first opinion,” and it should not be confused with a
+  real-world chance for a person.</p>
+  <div class="box"><b>Plain-language phrase:</b> “The prior is where this toy
+  calculation starts.”</div>
+  <p>The three values in the data file add to 1. This lets the code treat
+  them as a complete starting distribution for its artificial labels.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 53 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Likelihood: a teaching lookup</h1>
+  <p>A likelihood is another configured number. It answers a narrow
+  mathematical question: “For this synthetic label, what number does our
+  teaching table assign to this evidence?”</p>
+  <p>For example, the file assigns 0.80 as the likelihood of “cough present”
+  for `synthetic_pattern_alpha`. This does not mean that cough occurs in 80%
+  of real people in any health category. It means the table contains the
+  number 0.80 for this artificial exercise.</p>
+  <p>Why use likelihoods? They let the program show how evidence can adjust
+  starting weights. Without them, the Bayesian calculation has nothing to
+  multiply by.</p>
+  <p>Each evidence key is explicit. Cough-present and cough-absent have
+  different entries. A missing symptom is not automatically treated as an
+  absent symptom. Only configured, recognized evidence keys participate.</p>
+  <div class="warning">A likelihood table can be perfectly valid JSON and
+  still have no real-world evidential basis. The MEDNEX file says these values
+  are non-empirical and synthetic.</div>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 54 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Multiply to get a temporary weight</h1>
+  <p>The engine begins with one prior and multiplies by the likelihood for
+  each evidence item. Multiplication makes a new temporary weight. It is
+  called unnormalized because all the candidate weights do not necessarily
+  add to 1 yet.</p>
+  <div class="equation">Weight = Prior × Likelihood 1 × Likelihood 2</div>
+  <p>With the example values for Alpha, the computation is:
+  0.40 × 0.80 = 0.32; then 0.32 × 0.75 = 0.24. The temporary weight is 0.24.</p>
+  <p>Multiplication is the compact way the code applies all selected
+  likelihood values in sequence. It is not the program “counting symptoms.”
+  The values themselves come from the JSON teaching table.</p>
+  <p>Each label gets its own multiplication because each label has its own
+  prior and its own likelihood values.</p>
+  <div class="box"><b>Check your understanding:</b> If a starting value is
+  0.5 and a likelihood is 0.2, the product is 0.1. That is 10 hundredths.
+  There is no need to interpret it as a real medical chance.</div>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 55 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Normalize: make the weights add to one</h1>
+  <p>Suppose the temporary weights for Alpha, Beta, and Other are 0.24,
+  0.02625, and 0.015. Their total is 0.28125. They do not add to 1, so we
+  divide each weight by the total.</p>
+  <div class="equation">Updated share = That label's weight ÷ Sum of all labels' weights</div>
+  <p>For Alpha, 0.24 ÷ 0.28125 = 0.8533 approximately. Repeat for Beta and
+  Other. Once divided, the three values add to about 1. Tiny differences can
+  appear because decimals are rounded for display.</p>
+  <p>Think of the temporary weights as portions of a pie whose total size is
+  0.28125. Dividing by the total tells us what fraction of the full pie belongs
+  to each label. The normalized shares sum to 100%.</p>
+  <p>Why normalize? It makes a complete probability distribution that can be
+  checked and used by later calculations such as entropy.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 56 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Full worked Bayes example</h1>
+  <p>Use the actual synthetic prior and likelihood entries from the bundled
+  file. Imagine the only evidence keys in this small worked example are
+  cough-present and fever-present.</p>
+  <table><tr><th>Label</th><th>Prior</th><th>Cough</th><th>Fever</th><th>Multiply</th></tr>
+  <tr><td>Alpha</td><td>0.40</td><td>0.80</td><td>0.75</td><td>0.24000</td></tr>
+  <tr><td>Beta</td><td>0.35</td><td>0.30</td><td>0.25</td><td>0.02625</td></tr>
+  <tr><td>Other</td><td>0.25</td><td>0.20</td><td>0.30</td><td>0.01500</td></tr></table>
+  <p>Add the weights: 0.24000 + 0.02625 + 0.01500 = 0.28125. Divide each
+  weight by that sum:</p>
+  <table><tr><th>Label</th><th>Division</th><th>Result</th></tr>
+  <tr><td>Alpha</td><td>0.24000 ÷ 0.28125</td><td>0.8533</td></tr>
+  <tr><td>Beta</td><td>0.02625 ÷ 0.28125</td><td>0.0933</td></tr>
+  <tr><td>Other</td><td>0.01500 ÷ 0.28125</td><td>0.0533</td></tr></table>
+  <p>The result adds to about 1. This is an example of arithmetic, not
+  evidence about real health. A full input may contain additional configured
+  observations; the agent calculation uses only eligible recognized evidence.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 57 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Why the independence assumption matters</h1>
+  <p>To multiply likelihoods for multiple evidence items, the toy Bayesian
+  calculation treats those items as conditionally independent given a
+  candidate. In plain language, it pretends that once a label is fixed, each
+  evidence item can be handled separately.</p>
+  <p>This is a simplifying assumption, not a fact established by MEDNEX.
+  Real-world measurements and symptoms may be related. If related evidence is
+  multiplied as if independent, the calculation can count overlapping
+  information more than once.</p>
+  <p>Why use the assumption in a teaching demo? It gives students a tractable
+  example of a common probability method. The important lesson is to state
+  assumptions instead of hiding them.</p>
+  <div class="box"><b>Plain-language summary:</b> The multiplication is
+  convenient, but it depends on an assumption. If the assumption is wrong,
+  the computed values may not represent the intended situation.</div>
+  <p>The project explicitly separates Bayesian output from machine-learning
+  output. It does not average their numbers together.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 58 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VI · Probability without fear</p><h1>Missing is not absent</h1>
+  <p>Suppose a fictional sentence never mentions headache. The parser has no
+  headache fact. It should record “not reported,” not “headache absent.” The
+  person may have it, may not have it, or the sentence may simply omit it.</p>
+  <p>MEDNEX's Bayesian evidence extraction treats unmentioned observations as
+  missing. Its ML feature representation also has a distinct
+  <code>not_reported</code> state. This is a key data-quality principle.</p>
+  <p>Why does the difference matter mathematically? “Absent” is an explicit
+  evidence state with its own configured likelihood. “Not reported” generally
+  contributes no such evidence key. Treating them as the same would insert
+  information that the input did not provide.</p>
+  <div class="equation">No mention ≠ explicitly absent</div>
+  <p>In ordinary language: silence is not a “no.” This principle applies in
+  surveys, forms, databases, and many other programs—not just MEDNEX.</p>
+  <div class="footer"><span>Part VI · Probability without fear</span><span>Page 59 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>A row, a feature, and a label</h1>
+  <p>A row is one example in a table. A feature is one input column. A label
+  is the answer the training table gives for that row.</p>
+  <table><tr><th>cough</th><th>fever</th><th>headache</th><th>label</th></tr>
+  <tr><td>present</td><td>present</td><td>absent</td><td>synthetic alpha</td></tr>
+  <tr><td>absent</td><td>not reported</td><td>present</td><td>synthetic beta</td></tr></table>
+  <p>In this fictional table, cough, fever, shortness of breath, and headache
+  are features. The label is one of the synthetic teaching classes. The
+  classifier learns a mapping from feature combinations to labels.</p>
+  <p>Why use a table? Models need data in a consistent form. MEDNEX validates
+  that each feature uses one of a small set of allowed state words and that
+  labels are marked synthetic.</p>
+  <p>A training row is not automatically an authoritative example. A model
+  can faithfully learn patterns in poor, biased, tiny, or invented data.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 61 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Training and testing</h1>
+  <p>Training means giving a model examples so it can fit internal patterns.
+  Testing means checking predictions on examples held aside from training.
+  MEDNEX has 50 hand-authored rows and uses a 75%/25% split.</p>
+  <div class="equation">50 rows → 38 training rows + 12 test rows</div>
+  <p>The test count is rounded up in the code. A fixed random seed makes the
+  split repeatable. Stratification aims to keep class proportions similar in
+  training and test groups.</p>
+  <p>Why hold examples out? If we test only on examples the model practiced
+  on, the score can make memorization look like general success. A separate
+  test group gives a more useful software exercise.</p>
+  <p>But a held-out score is only meaningful relative to the data. Here the
+  data is tiny and artificial. A high score would describe this synthetic
+  split, not performance on people or real conditions.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 62 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Three kinds of classifier</h1>
+  <p>MEDNEX trains logistic regression, a decision tree, and a random forest.
+  The names describe different mathematical methods for mapping features to
+  labels.</p>
+  <ul><li><b>Logistic regression:</b> learns weights and uses them to score
+  possible classes. MEDNEX uses it by default for a prediction.</li>
+  <li><b>Decision tree:</b> follows a sequence of feature questions, like a
+  flowchart, until it reaches a class.</li>
+  <li><b>Random forest:</b> builds many decision trees and combines them.</li></ul>
+  <p>scikit-learn implements the training algorithms. MEDNEX prepares the
+  feature dictionary, builds the pipelines, fits the models, and reports
+  outputs. It does not implement all model mathematics from scratch.</p>
+  <p>Why compare several classifiers? It is a way to demonstrate how
+  different methods can be trained on the same small table. Their predictions
+  should remain clearly identified as outputs from separate models.</p>
+  <div class="warning">The models learn from artificial rows. The probability
+  values they return are not calibrated clinical probabilities.</div>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 63 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Accuracy: total correct guesses</h1>
+  <p>Accuracy asks: out of all the test examples, what fraction did the model
+  classify correctly? “Fraction” means correct examples divided by total
+  examples.</p>
+  <div class="equation">Accuracy = Correct test predictions ÷ Total test examples</div>
+  <p>Suppose a model gets 9 of 12 test rows right. Then 9 ÷ 12 = 0.75, which
+  is 75%. This made-up number is only a teaching example.</p>
+  <p>Why measure it? It gives a simple overall summary of the model's test
+  guesses. Its weakness is that it can hide poor results for a smaller
+  class. If most examples are from one class, a model can look accurate by
+  mostly guessing that class.</p>
+  <p>That is why MEDNEX also reports precision, recall, F1, and a confusion
+  matrix. Each gives another view of the same synthetic test predictions.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 64 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Precision: when the model says “this label”</h1>
+  <p>For one label, precision asks: among all test rows the classifier
+  predicted as that label, how many truly had that label?</p>
+  <div class="equation">Precision = Correct positive predictions ÷ All positive predictions</div>
+  <p>“True positive” (TP) means the label was predicted and it was correct.
+  “False positive” (FP) means the label was predicted but it was wrong.</p>
+  <div class="equation">Precision = TP ÷ (TP + FP)</div>
+  <p>Imagine a model predicted “blue team” 10 times. Eight guesses were
+  correct and two were wrong. Precision is 8 ÷ 10 = 0.8, or 80%.</p>
+  <p>Why is this useful? It describes the trustworthiness of a model's
+  positive predictions for that label, within the test dataset. It does not
+  tell us how many true blue-team rows the model missed; that is recall.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 65 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Recall: how many true examples were found?</h1>
+  <p>Recall asks: among all test rows that really belong to a label, how many
+  did the model correctly find?</p>
+  <p>“False negative” (FN) means a row truly belonged to the label, but the
+  classifier predicted another label. So recall divides correct finds by all
+  actual examples of that label.</p>
+  <div class="equation">Recall = TP ÷ (TP + FN)</div>
+  <p>If there are 10 real blue-team examples and the model finds 8, recall is
+  8 ÷ 10 = 0.8, or 80%. It missed two, so FN = 2 and TP = 8.</p>
+  <p>Why is recall separate from precision? A model could make only a few
+  predictions and get them mostly right (high precision), while missing many
+  real examples (low recall). Looking at both gives a fuller picture.</p>
+  <p>Again, these are test-set bookkeeping terms. The MEDNEX dataset is
+  artificial; a score does not describe clinical capability.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 66 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>F1: combining precision and recall</h1>
+  <p>F1 combines precision and recall in one score. The formula is a harmonic
+  mean. For this beginner guide, think of it as a combined score that becomes
+  low if either precision or recall is low.</p>
+  <div class="equation">F1 = 2 × Precision × Recall ÷ (Precision + Recall)</div>
+  <p>If precision and recall are both 0.8:
+  2 × (0.8 × 0.8) ÷ (0.8 + 0.8) = 1.28 ÷ 1.6 = 0.8, or 80%.</p>
+  <p>Why use F1? It summarizes the balance between “how often positive guesses
+  were correct” and “how many real positive examples were found.” It cannot
+  replace reading the two separate values, because the combined number hides
+  detail.</p>
+  <p>If both precision and recall are zero, the formula would divide by zero.
+  MEDNEX asks scikit-learn to return zero for certain undefined metric cases
+  so the evaluation can still be reported.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 67 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VII · Machine learning</p><h1>Macro average and confusion matrix</h1>
+  <p>Macro averaging gives each class equal importance in the final average.
+  First find a metric for each class. Then add those values and divide by the
+  number of classes.</p>
+  <div class="equation">For 3 classes: Macro score = (Score A + Score B + Score C) ÷ 3</div>
+  <p>Suppose the class scores are 0.9, 0.6, and 0.3. The macro average is
+  (0.9 + 0.6 + 0.3) ÷ 3 = 0.6. Each class gets equal weight, even if the
+  dataset has different counts for each class.</p>
+  <p>A confusion matrix is a grid. Rows show the actual class; columns show
+  the predicted class. The diagonal cells are correct predictions. Cells
+  outside the diagonal show which classes were confused.</p>
+  <p>Why use both? Macro scores summarize across classes; a confusion matrix
+  reveals specific mix-ups. In MEDNEX these are teaching diagnostics for a
+  synthetic split only.</p>
+  <div class="footer"><span>Part VII · Machine learning</span><span>Page 68 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>What does uncertainty look like?</h1>
+  <p>Imagine choosing one of two equally likely colored cards. You do not know
+  which card you will get; each has a 50% chance. That is more uncertain than
+  a situation where the first card has 100% and the second 0% in the
+  distribution.</p>
+  <p>Entropy is a number that measures this spread. For a fair two-choice
+  situation, entropy is 1 bit. For a fully decided one-choice situation, it
+  is 0 bits. “Bit” is a unit for information, like a tiny measuring unit; it
+  is not a health measure.</p>
+  <p>Why use entropy? The information engine needs a number to compare the
+  current distribution with possible distributions after hypothetical
+  answers. Entropy provides that comparison.</p>
+  <p>Entropy does not say why the distribution exists, whether its inputs are
+  good, or whether any candidate is true. It only measures the distribution
+  the program was given.</p>
+  <div class="equation">Entropy = a number describing how spread out the toy probabilities are</div>
+  <p>This is the starting idea for the next lessons. We will first write the
+  calculation, then explain each symbol, then see how the program compares
+  uncertainty before and after a hypothetical answer.</p>
+  <div class="footer"><span>Part VIII · Entropy and questions</span><span>Page 70 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>Entropy's formula, in plain language</h1>
+  <p>The information engine computes Shannon entropy. It uses this compact
+  formula for a set of candidate probabilities:</p>
+  <div class="equation">H(X) = −∑<sub>x</sub> P(x) log<sub>2</sub> P(x)</div>
+  <p>Read it slowly: for every possible label, take its probability, multiply
+  it by the base-2 logarithm of that probability, add all those answers, and
+  change the sign to positive. The computer does this arithmetic; you do not
+  need to calculate logarithms by hand.</p>
+  <table><tr><th>Part</th><th>Meaning</th></tr>
+  <tr><td>H(X)</td><td>The entropy, or spread/uncertainty, of the candidate set X</td></tr>
+  <tr><td>P(x)</td><td>The probability value for one candidate x</td></tr>
+  <tr><td>∑ over x</td><td>Repeat for each candidate and add the results</td></tr>
+  <tr><td>log₂</td><td>A base-2 logarithm; the result is measured in bits</td></tr></table>
+  <p>The minus sign is part of the formula because logarithms of values
+  between 0 and 1 are negative. It makes the final entropy non-negative.</p>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 59 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>How to read the math symbols</h1>
+  <p>Math notation is a shorthand. Here is how to translate the symbols in
+  MEDNEX's entropy and information-gain formulas into ordinary words.</p>
+  <ul><li><b>H</b> is the name of the entropy calculation.</li>
+  <li><b>X</b> is the whole set of possible candidate labels.</li>
+  <li><b>x</b> is one label from that set. A lowercase letter means “one at a time.”</li>
+  <li><b>P(x)</b> is the current probability assigned to that label.</li>
+  <li><b>∑</b> means “add these values,” repeating for all candidates or answers.</li>
+  <li><b>log₂</b> means logarithm to base 2. In this context it converts probability spread into a unit called bits.</li></ul>
+  <p>Python's entropy function skips a term whose probability is zero. This
+  avoids trying to compute the logarithm of zero, which is not defined by the
+  usual real-number rules.</p>
+  <p>You may see a subscript such as the small 2 in log₂. It names the base of
+  the logarithm; it is not multiplication. You may see a subscript x under a
+  summation sign; it says which values to repeat the addition over.</p>
+  <div class="box"><b>Do not memorize the symbol first.</b> Learn the sentence
+  it represents. The formula says: “Measure each candidate's contribution,
+  then add all contributions.”</div>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 60 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>A tiny entropy example</h1>
+  <p>Imagine two equally possible outcomes, each with probability 0.5. A
+  probability of 0.5 is one half, or 50%. The outcomes together add to 1.</p>
+  <div class="equation">H = −[0.5 × log<sub>2</sub>(0.5) + 0.5 × log<sub>2</sub>(0.5)]</div>
+  <p>For base 2, log₂(0.5) equals −1. So each bracket term is
+  0.5 × (−1), or −0.5. Add the two terms: −0.5 + −0.5 = −1. The minus sign
+  outside changes −1 to positive 1.</p>
+  <div class="equation">H = −[−0.5 − 0.5] = 1 bit</div>
+  <p>Now imagine one outcome has probability 1 and the other probability 0.
+  The result is completely decided in this distribution, so entropy is 0
+  bits. The computer skips the zero-probability term.</p>
+  <p>Why show this? It gives a scale: a fair two-choice distribution has more
+  uncertainty than a distribution that puts all its weight on one choice.
+  Entropy describes only these numbers, not truth or importance.</p>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 61 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>What does a question's answer probability mean?</h1>
+  <p>The information engine asks hypothetical, prewritten educational
+  questions. It estimates the probability of each possible answer using the
+  current candidate distribution and a table of invented answer likelihoods.</p>
+  <div class="equation">P(a) = ∑<sub>x</sub> P(x) × P(a | x)</div>
+  <p>Read this as: for each candidate, multiply its current probability by the
+  likelihood of answer <i>a</i> for that candidate. Then add the products.
+  The vertical bar means “given.” So P(a | x) means “the table's likelihood
+  of answer a, given candidate x.”</p>
+  <p>Use the cough question. Current values are Alpha 0.40, Beta 0.35, Other
+  0.25. For the answer “present,” the table values are 0.80, 0.30, and 0.20.</p>
+  <div class="equation">P(present) = (0.40 × 0.80) + (0.35 × 0.30) + (0.25 × 0.20)<br>= 0.320 + 0.105 + 0.050 = 0.475</div>
+  <p>So this toy table says the hypothetical answer “present” has probability
+  0.475 (47.5%). This number is not a real-world frequency or clinical
+  estimate. It is calculated from invented teaching values.</p>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 62 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>Update the candidates after an answer</h1>
+  <p>If we imagine receiving answer <i>a</i>, the program updates the
+  candidate probabilities. It uses the same multiply-and-divide idea as the
+  Bayesian section.</p>
+  <div class="equation">P(x | a) = [P(x) × P(a | x)] ÷ P(a)</div>
+  <p>In words: multiply the old probability by the answer likelihood, then
+  divide by the overall probability of that answer. Division normalizes the
+  new values so they add to 1.</p>
+  <p>For cough-present, the temporary values were Alpha 0.320, Beta 0.105,
+  and Other 0.050. Their sum was 0.475. Divide each value by 0.475:</p>
+  <table><tr><th>Candidate</th><th>Calculation</th><th>Updated share</th></tr>
+  <tr><td>Alpha</td><td>0.320 ÷ 0.475</td><td>0.6737</td></tr>
+  <tr><td>Beta</td><td>0.105 ÷ 0.475</td><td>0.2211</td></tr>
+  <tr><td>Other</td><td>0.050 ÷ 0.475</td><td>0.1053</td></tr></table>
+  <p>Check: 0.6737 + 0.2211 + 0.1053 is about 1.0001. The tiny extra
+  0.0001 is rounding; unrounded program values sum to 1.</p>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 63 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>Expected entropy and information gain</h1>
+  <p>Each possible answer creates its own updated candidate distribution and
+  entropy. The engine calculates a weighted average over those possible
+  outcomes. “Expected” means a probability-weighted average, not a promise.</p>
+  <div class="equation">Expected entropy = ∑<sub>a</sub> P(a) × H(X | a)</div>
+  <p>In the cough example, “present” has probability 0.475 and entropy about
+  1.2071 bits. “Absent” has probability 0.525 and entropy about 1.4571 bits.</p>
+  <div class="equation">Expected entropy = (0.475 × 1.2071) + (0.525 × 1.4571)<br>≈ 1.3384 bits</div>
+  <p>Information gain asks how much lower the expected future entropy is than
+  the current entropy:</p>
+  <div class="equation">Information gain = Current entropy − Expected entropy after the answer</div>
+  <p>Here, current entropy is about 1.5589 bits. Expected future entropy is
+  about 1.3384 bits, so gain is about 0.2205 bits. The question is ranked by
+  this mathematical difference.</p>
+  <p>A larger number only means greater expected reduction under the synthetic
+  tables. It does not mean greater medical value, safety, urgency, or
+  appropriateness.</p>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 64 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part VIII · Measuring uncertainty</p><h1>The whole information-gain example</h1>
+  <p>Put the steps together for the bundled cough question. The starting
+  probabilities are Alpha 0.40, Beta 0.35, and Other 0.25. The current
+  entropy is 1.5589 bits.</p>
+  <ol><li>Calculate the chance of each hypothetical answer:
+  P(present) = 0.475 and P(absent) = 0.525.</li>
+  <li>For “present,” multiply each starting probability by its answer
+  likelihood and divide by 0.475. Updated values: 0.6737, 0.2211, 0.1053.</li>
+  <li>For “absent,” repeat using likelihoods 0.20, 0.70, and 0.80, then divide
+  by 0.525. Updated values: 0.1524, 0.4667, 0.3810.</li>
+  <li>Calculate entropy for each updated set: about 1.2071 bits for present
+  and 1.4571 bits for absent.</li>
+  <li>Weight and add those entropies: 0.475 × 1.2071 + 0.525 × 1.4571
+  ≈ 1.3384 bits.</li>
+  <li>Subtract from the original: 1.5589 − 1.3384 ≈ 0.2205 bits.</li></ol>
+  <div class="box"><b>What did we learn?</b> The computer can compare the
+  fixed questions using expected change in its own toy probability
+  distribution. The number comes from the chosen table, not a patient.</div>
+  <div class="footer"><span>Part VIII · Measuring uncertainty</span><span>Page 65 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IX · Responses, reports, and tests</p><h1>From internal results to a user answer</h1>
+  <p>The agent creates a structured turn containing its session, status,
+  safety result, extraction, optional engine results, decision plan, report,
+  and change explanation. The user-facing response builder receives this
+  object and chooses what to say.</p>
+  <p>It checks safety first, then missing extraction, contradictory symptoms,
+  ambiguity, unsupported phrases, and whether a matching guidance topic
+  exists. If it can continue, it inserts symptom labels into fixed text and
+  adds curated lists.</p>
+  <p>If the planner chose a follow-up, the builder appends that exact
+  prewritten question. The builder does not turn probability values into
+  narrative or ask an LLM to write prose.</p>
+  <div class="box"><b>Three layers:</b> the engine produces facts and
+  calculations; the report organizes details; the response builder selects
+  safe, plain-language content for the chat.</div>
+  <p>Why have both report and chat answer? A technical report is useful for
+  inspection. A short chat response is easier to read. They have different
+  audiences, so they show different details.</p>
+  <div class="footer"><span>Part IX · Responses, reports, and tests</span><span>Page 66 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IX · Responses, reports, and tests</p><h1>What is a test?</h1>
+  <p>A software test is a small program that checks another program. It
+  prepares an input, runs a function, and checks whether the result matches
+  expectations.</p>
+  <div class="code">Input: a supported fictional cough phrase
+Check: the parser records cough
+Check: a negated cough is not recorded as present
+Check: contradictory facts produce an uncertain state</div>
+  <p>Why tests? They catch accidental changes. If a developer changes a
+  pattern and breaks negation, a parser test can show the problem before a
+  person demonstrates the app.</p>
+  <p>The project uses pytest. Run all tests with
+  <code>python -m pytest</code>. Tests cover models, parser, general
+  responses, web routes, graph, symbolic engine, Bayesian arithmetic, ML,
+  information gain, agent behavior, and reports.</p>
+  <p>A passing test means the code met the test's expectations. It does not
+  prove every behavior is correct or medically valid. Tests check software
+  behavior, not clinical evidence.</p>
+  <div class="footer"><span>Part IX · Responses, reports, and tests</span><span>Page 67 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IX · Responses, reports, and tests</p><h1>How to read the project as a beginner</h1>
+  <p>Start with the entry point, then follow one request. Do not try to read
+  every file at once. Trace the names in the call path.</p>
+  <ol><li><code>app.py</code> starts the server.</li>
+  <li><code>web_server.py</code> receives the route and validates the request shape.</li>
+  <li><code>guidance.py</code> handles the general chat, or <code>agent.py</code> runs the agent.</li>
+  <li><code>nlp/parser.py</code> extracts supported facts.</li>
+  <li>Engine files calculate their own structured outputs.</li>
+  <li><code>user_response.py</code> builds the plain user-facing agent response.</li></ol>
+  <p>When reading a function, note its inputs, its named variables, its
+  conditions, and its returned value. Follow one variable at a time. Search
+  for where a function is called if you want to understand the full path.</p>
+  <p><b>Practice question:</b> Which module decides what the browser displays?
+  The browser JavaScript displays text from the response, while Python
+  constructs the content and JSON fields.</p>
+  <div class="footer"><span>Part IX · Responses, reports, and tests</span><span>Page 68 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IX · Responses, reports, and tests</p><h1>Final classroom demonstration</h1>
+  <ol><li>Start the local server with <code>python app.py</code>.</li>
+  <li>In General Information, ask: “Please give general information about cough.” Point out the fixed template and curated content.</li>
+  <li>Try an unfamiliar phrase and observe clarification instead of invented guidance.</li>
+  <li>Switch to Reasoning Agent and enter only a fictional case:
+  “A fictional person reports a cough.”</li>
+  <li>Explain the extracted facts, graph, rules, probability tables, ML, and
+  information gain as separate educational components.</li>
+  <li>If a follow-up is asked, answer within the fictional exercise and show
+  that the agent reruns with the session state.</li>
+  <li>Try a contradiction and show that the result remains uncertain.</li>
+  <li>Run <code>python -m pytest</code> to show that behavior is checked.</li></ol>
+  <p>At every step, say what the program actually did. Do not call synthetic
+  labels diagnoses, synthetic probabilities risk estimates, or phrase
+  matching a full understanding of language.</p>
+  <div class="warning">This classroom demo is not for real symptom questions.
+  If a real person needs help, use an appropriate qualified professional or
+  local emergency service—not this educational software.</div>
+  <div class="footer"><span>Part IX · Responses, reports, and tests</span><span>Page 69 of 70</span></div>
+</section>
+
+<section class="page">
+  <p class="kicker">Part IX · Final review</p><h1>Glossary and quick check</h1>
+  <table><tr><th>Word</th><th>Beginner definition</th></tr>
+  <tr><td>Parser</td><td>Code that searches for known patterns in text and creates fields.</td></tr>
+  <tr><td>Template</td><td>Prewritten sentence structure filled with selected values.</td></tr>
+  <tr><td>Prior</td><td>Starting probability in a toy calculation.</td></tr>
+  <tr><td>Likelihood</td><td>A configured evidence value for a candidate label.</td></tr>
+  <tr><td>Posterior</td><td>A normalized value after the configured evidence update.</td></tr>
+  <tr><td>Entropy</td><td>A mathematical measure of how spread out a probability distribution is.</td></tr>
+  <tr><td>Information gain</td><td>Expected reduction in that mathematical uncertainty.</td></tr>
+  <tr><td>Test</td><td>Code that checks another piece of code against an expected result.</td></tr></table>
+  <h2>Check you understand</h2>
+  <ol><li>Does an unmentioned symptom mean it is absent? <b>No.</b></li>
+  <li>Does a graph link prove a real-world relationship? <b>No.</b></li>
+  <li>Does an 80% synthetic probability mean 80% clinical risk? <b>No.</b></li>
+  <li>Who writes the chat grammar? <b>The developers, using templates and prepared text.</b></li>
+  <li>What is the safest result when input conflicts? <b>Do not force a conclusion; preserve uncertainty.</b></li></ol>
+  <p><b>Final message:</b> MEDNEX is a transparent software teaching example.
+  Learn from its structure and arithmetic, while remembering that its
+  synthetic data is not medical knowledge.</p>
+  <div class="footer"><span>Part IX · Final review</span><span>Page 70 of 70</span></div>
+</section>
+
+<script>
+document.querySelectorAll(".page .footer span:last-child").forEach((node, index) => {
+  node.textContent = `Page ${index + 1} of 70`;
+});
+const pages = [...document.querySelectorAll(".page")];
+document.documentElement.dataset.bookPages = pages.length;
+const overflowPages = pages
+  .map((page, index) => {
+    const footer = page.querySelector(".footer");
+    const footerTop = footer.getBoundingClientRect().top;
+    const contentBottom = Math.max(
+      ...[...page.children]
+        .filter((child) => !child.classList.contains("footer"))
+        .map((child) => child.getBoundingClientRect().bottom),
+    );
+    return contentBottom > footerTop - 8 ? index + 1 : null;
+  })
+  .filter((pageNumber) => pageNumber !== null);
+document.documentElement.dataset.overflowPages = overflowPages.join(",");
+</script>
+</body>
+</html>

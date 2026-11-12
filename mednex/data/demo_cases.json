@@ -1,0 +1,41 @@
+{
+  "dataset_notice": "Synthetic educational interface examples only; not clinical cases, diagnoses, or medication guidance.",
+  "cases": [
+    {
+      "id": "standard-extraction",
+      "title": "Supported symptoms and measurements",
+      "description": "A fictional 45-year-old person has a dry cough and fever for three days. Temperature is 38.5 degrees Celsius and oxygen saturation is 96 percent.",
+      "learning_goal": "Observe deterministic extraction of explicitly stated demographics, symptoms, duration, and supported measurements."
+    },
+    {
+      "id": "incomplete-description",
+      "title": "Incomplete fictional description",
+      "description": "A fictional person reports a headache.",
+      "learning_goal": "Observe that unstated age, duration, and measurements remain missing."
+    },
+    {
+      "id": "negated-symptoms",
+      "title": "Explicitly negated symptoms",
+      "description": "A fictional person has no fever and does not have a cough.",
+      "learning_goal": "Observe that explicit negation is retained rather than treated as symptom presence."
+    },
+    {
+      "id": "contradictory-statements",
+      "title": "Contradictory fictional statements",
+      "description": "A fictional person has fever but does not have a fever.",
+      "learning_goal": "Observe that conflicting input produces an uncertain result."
+    },
+    {
+      "id": "measurement-aliases",
+      "title": "Supported measurement aliases",
+      "description": "A fictional person reports a cough. Pulse is 72 bpm and oxygen saturation is 96 percent.",
+      "learning_goal": "Observe deterministic normalization of supported measurement terms."
+    },
+    {
+      "id": "follow-up-cycle",
+      "title": "One-question-at-a-time interaction",
+      "description": "A fictional person reports a cough.",
+      "learning_goal": "Explore the actual agent's follow-up questions and remaining uncertainty."
+    }
+  ]
+}

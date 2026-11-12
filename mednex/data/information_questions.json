@@ -1,0 +1,126 @@
+{
+  "description": "Small synthetic educational question model for demonstrating Shannon entropy and expected information gain. Not a clinical questionnaire or recommendation.",
+  "parameter_origin": "Answer likelihoods are hand-authored instructional constants chosen to demonstrate entropy calculations. They are not empirical, clinically validated, or claims about real patients.",
+  "conditional_independence_assumption": "For each question, answer likelihood depends only on the synthetic candidate label. Question answers are hypothetical and are not assumed to be observations already collected.",
+  "questions": [
+    {
+      "id": "ask_cough",
+      "text": "For this educational exercise, is cough reported, absent, or still unknown?",
+      "evidence_key": "symptom:cough",
+      "answers": {
+        "present": {
+          "synthetic_pattern_alpha": 0.8,
+          "synthetic_pattern_beta": 0.3,
+          "synthetic_other": 0.2
+        },
+        "absent": {
+          "synthetic_pattern_alpha": 0.2,
+          "synthetic_pattern_beta": 0.7,
+          "synthetic_other": 0.8
+        }
+      }
+    },
+    {
+      "id": "ask_fever",
+      "text": "For this educational exercise, is fever reported, absent, or still unknown?",
+      "evidence_key": "symptom:fever",
+      "answers": {
+        "present": {
+          "synthetic_pattern_alpha": 0.75,
+          "synthetic_pattern_beta": 0.25,
+          "synthetic_other": 0.3
+        },
+        "absent": {
+          "synthetic_pattern_alpha": 0.25,
+          "synthetic_pattern_beta": 0.75,
+          "synthetic_other": 0.7
+        }
+      }
+    },
+    {
+      "id": "ask_headache",
+      "text": "For this educational exercise, is headache reported, absent, or still unknown?",
+      "evidence_key": "symptom:headache",
+      "answers": {
+        "present": {
+          "synthetic_pattern_alpha": 0.35,
+          "synthetic_pattern_beta": 0.7,
+          "synthetic_other": 0.3
+        },
+        "absent": {
+          "synthetic_pattern_alpha": 0.65,
+          "synthetic_pattern_beta": 0.3,
+          "synthetic_other": 0.7
+        }
+      }
+    },
+    {
+      "id": "ask_temperature",
+      "text": "For this educational exercise, was a temperature measurement reported?",
+      "evidence_key": "observation:temperature_celsius",
+      "answers": {
+        "reported": {
+          "synthetic_pattern_alpha": 0.7,
+          "synthetic_pattern_beta": 0.4,
+          "synthetic_other": 0.3
+        },
+        "not_reported": {
+          "synthetic_pattern_alpha": 0.3,
+          "synthetic_pattern_beta": 0.6,
+          "synthetic_other": 0.7
+        }
+      }
+    },
+    {
+      "id": "ask_heart_rate",
+      "text": "For this educational exercise, was a heart-rate measurement reported?",
+      "evidence_key": "observation:heart_rate_bpm",
+      "answers": {
+        "reported": {
+          "synthetic_pattern_alpha": 0.45,
+          "synthetic_pattern_beta": 0.55,
+          "synthetic_other": 0.4
+        },
+        "not_reported": {
+          "synthetic_pattern_alpha": 0.55,
+          "synthetic_pattern_beta": 0.45,
+          "synthetic_other": 0.6
+        }
+      }
+    },
+    {
+      "id": "ask_respiratory_rate",
+      "text": "For this educational exercise, was a respiratory-rate measurement reported?",
+      "evidence_key": "observation:respiratory_rate_per_minute",
+      "answers": {
+        "reported": {
+          "synthetic_pattern_alpha": 0.5,
+          "synthetic_pattern_beta": 0.6,
+          "synthetic_other": 0.35
+        },
+        "not_reported": {
+          "synthetic_pattern_alpha": 0.5,
+          "synthetic_pattern_beta": 0.4,
+          "synthetic_other": 0.65
+        }
+      }
+    },
+    {
+      "id": "ask_oxygen_saturation",
+      "text": "For this educational exercise, was an oxygen-saturation measurement reported?",
+      "evidence_key": "observation:oxygen_saturation_percent",
+      "answers": {
+        "reported": {
+          "synthetic_pattern_alpha": 0.4,
+          "synthetic_pattern_beta": 0.65,
+          "synthetic_other": 0.4
+        },
+        "not_reported": {
+          "synthetic_pattern_alpha": 0.6,
+          "synthetic_pattern_beta": 0.35,
+          "synthetic_other": 0.6
+        }
+      }
+    }
+  ]
+}

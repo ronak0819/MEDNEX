@@ -1,0 +1,55 @@
+{
+  "description": "Small synthetic educational graph. Relationships are illustrative associations, not clinical evidence or a validated guideline.",
+  "nodes": [
+    {"id": "symptom:cough", "category": "symptom", "label": "Cough", "description": "A symptom concept used in fictional examples."},
+    {"id": "symptom:fever", "category": "symptom", "label": "Fever", "description": "A symptom concept used in fictional examples."},
+    {"id": "symptom:shortness_of_breath", "category": "symptom", "label": "Shortness of breath", "description": "A symptom concept used in fictional examples."},
+    {"id": "symptom:headache", "category": "symptom", "label": "Headache", "description": "A symptom concept used in fictional examples."},
+
+    {"id": "observation:temperature_celsius", "category": "observation", "label": "Temperature measurement", "description": "A measurement explicitly extracted from input."},
+    {"id": "observation:heart_rate_bpm", "category": "observation", "label": "Heart-rate measurement", "description": "A measurement explicitly extracted from input."},
+    {"id": "observation:respiratory_rate_per_minute", "category": "observation", "label": "Respiratory-rate measurement", "description": "A measurement explicitly extracted from input."},
+    {"id": "observation:oxygen_saturation_percent", "category": "observation", "label": "Oxygen-saturation measurement", "description": "A measurement explicitly extracted from input."},
+    {"id": "observation:blood_pressure_mmhg", "category": "observation", "label": "Blood-pressure measurement", "description": "A measurement explicitly extracted from input."},
+    {"id": "observation:age_years", "category": "observation", "label": "Age observation", "description": "An explicitly stated age; no age-specific interpretation is defined."},
+    {"id": "observation:sex", "category": "observation", "label": "Sex observation", "description": "An explicitly stated sex; no interpretation is defined."},
+    {"id": "observation:symptom_duration", "category": "observation", "label": "Symptom-duration observation", "description": "An explicitly stated duration."},
+
+    {"id": "condition:synthetic_pattern_alpha", "category": "candidate_condition", "label": "Synthetic pattern alpha", "description": "Fictional educational candidate; not a diagnosis."},
+    {"id": "condition:synthetic_pattern_beta", "category": "candidate_condition", "label": "Synthetic pattern beta", "description": "Fictional educational candidate; not a diagnosis."},
+
+    {"id": "question:pattern_alpha_context", "category": "assessment_question", "label": "What additional context would be relevant to fictional pattern alpha?", "description": "An educational assessment question, not a clinical protocol."},
+    {"id": "question:pattern_beta_context", "category": "assessment_question", "label": "What additional context would be relevant to fictional pattern beta?", "description": "An educational assessment question, not a clinical protocol."},
+    {"id": "question:input_quality", "category": "assessment_question", "label": "Is the input sufficiently clear and consistent for an educational exercise?", "description": "A data-quality question only."},
+
+    {"id": "investigation:clarify_timeline", "category": "investigation_concept", "label": "Clarify the reported timeline", "description": "A fictional prompt for exploring the limits of available information."},
+    {"id": "investigation:review_observations", "category": "investigation_concept", "label": "Review the reported observations", "description": "A fictional prompt for checking data interpretation."},
+    {"id": "investigation:clarify_input", "category": "investigation_concept", "label": "Clarify ambiguous or unsupported wording", "description": "A data clarification prompt, not a medical investigation."},
+
+    {"id": "risk:uncertain_input", "category": "risk_indicator", "label": "Input needs clarification", "description": "A non-clinical data-quality flag for ambiguous or unsupported statements; not a clinical risk."},
+    {"id": "risk:conflicting_input", "category": "risk_indicator", "label": "Input contains conflicting statements", "description": "A non-clinical data-quality flag for contradictory extracted facts; not a clinical risk."}
+  ],
+  "edges": [
+    {"source": "symptom:cough", "target": "condition:synthetic_pattern_alpha", "relation": "symptom_associated_condition", "polarity": "supporting", "rationale": "This fictional dataset links cough as an illustrative supporting example for pattern alpha."},
+    {"source": "symptom:fever", "target": "condition:synthetic_pattern_alpha", "relation": "symptom_associated_condition", "polarity": "supporting", "rationale": "This fictional dataset links fever as an illustrative supporting example for pattern alpha."},
+    {"source": "symptom:shortness_of_breath", "target": "condition:synthetic_pattern_alpha", "relation": "symptom_associated_condition", "polarity": "conflicting", "rationale": "This deliberately synthetic relationship demonstrates that a graph may encode conflicting evidence; it is not clinical evidence."},
+    {"source": "symptom:shortness_of_breath", "target": "condition:synthetic_pattern_beta", "relation": "symptom_associated_condition", "polarity": "supporting", "rationale": "This fictional dataset links shortness of breath as an illustrative supporting example for pattern beta."},
+    {"source": "symptom:headache", "target": "condition:synthetic_pattern_beta", "relation": "symptom_associated_condition", "polarity": "supporting", "rationale": "This fictional dataset links headache as an illustrative supporting example for pattern beta."},
+    {"source": "symptom:cough", "target": "condition:synthetic_pattern_beta", "relation": "symptom_associated_condition", "polarity": "conflicting", "rationale": "This deliberately synthetic relationship demonstrates that a graph may encode conflicting evidence; it is not clinical evidence."},
+
+    {"source": "observation:temperature_celsius", "target": "condition:synthetic_pattern_alpha", "relation": "observation_relevant_condition", "polarity": "supporting", "rationale": "A reported temperature is included as a synthetic contextual observation for pattern alpha; no threshold is encoded."},
+    {"source": "observation:heart_rate_bpm", "target": "condition:synthetic_pattern_alpha", "relation": "observation_relevant_condition", "polarity": "contextual", "rationale": "A reported heart-rate measurement is included for discussion only; no value interpretation is encoded."},
+    {"source": "observation:respiratory_rate_per_minute", "target": "condition:synthetic_pattern_beta", "relation": "observation_relevant_condition", "polarity": "contextual", "rationale": "A reported respiratory-rate measurement is included for discussion only; no value interpretation is encoded."},
+    {"source": "observation:oxygen_saturation_percent", "target": "condition:synthetic_pattern_beta", "relation": "observation_relevant_condition", "polarity": "contextual", "rationale": "A reported oxygen-saturation measurement is included for discussion only; no value interpretation is encoded."},
+    {"source": "observation:blood_pressure_mmhg", "target": "condition:synthetic_pattern_alpha", "relation": "observation_relevant_condition", "polarity": "contextual", "rationale": "A reported blood-pressure measurement is included for discussion only; no value interpretation is encoded."},
+    {"source": "observation:symptom_duration", "target": "condition:synthetic_pattern_alpha", "relation": "observation_relevant_condition", "polarity": "contextual", "rationale": "A reported duration is included for discussion only; no timeline interpretation is encoded."},
+
+    {"source": "condition:synthetic_pattern_alpha", "target": "question:pattern_alpha_context", "relation": "condition_has_question", "polarity": "contextual", "rationale": "The fictional candidate is paired with an open-ended educational context question."},
+    {"source": "condition:synthetic_pattern_beta", "target": "question:pattern_beta_context", "relation": "condition_has_question", "polarity": "contextual", "rationale": "The fictional candidate is paired with an open-ended educational context question."},
+    {"source": "investigation:clarify_timeline", "target": "question:pattern_alpha_context", "relation": "investigation_relevant_to_question", "polarity": "contextual", "rationale": "A timeline clarification prompt illustrates a possible information gap for the exercise."},
+    {"source": "investigation:review_observations", "target": "question:pattern_beta_context", "relation": "investigation_relevant_to_question", "polarity": "contextual", "rationale": "Reviewing explicitly reported measurements illustrates a possible information question for the exercise."},
+    {"source": "risk:uncertain_input", "target": "question:input_quality", "relation": "risk_indicator_for_question", "polarity": "contextual", "rationale": "Ambiguous or unsupported language flags input quality for clarification, not clinical risk."},
+    {"source": "risk:conflicting_input", "target": "question:input_quality", "relation": "risk_indicator_for_question", "polarity": "contextual", "rationale": "Contradictory extracted statements flag input quality for clarification, not clinical risk."},
+    {"source": "investigation:clarify_input", "target": "question:input_quality", "relation": "investigation_relevant_to_question", "polarity": "contextual", "rationale": "Clarifying the wording can resolve a data-quality issue in this educational exercise."}
+  ]
+}

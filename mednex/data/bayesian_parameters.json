@@ -1,0 +1,70 @@
+{
+  "description": "Synthetic teaching parameters chosen to demonstrate Bayes' theorem arithmetic only. Priors and likelihoods are hand-authored, non-empirical, and are not estimates from patients, publications, or clinical guidelines.",
+  "parameter_origin": "Every probability in this file is a synthetic, invented instructional constant selected for transparent worked examples. It has no clinical calibration or evidential basis.",
+  "conditional_independence_assumption": "For this demonstration only, each distinct observed evidence key is treated as conditionally independent of the other observed keys given a candidate label. This is a simplifying mathematical assumption and is not established for real patient data.",
+  "priors": {
+    "synthetic_pattern_alpha": 0.4,
+    "synthetic_pattern_beta": 0.35,
+    "synthetic_other": 0.25
+  },
+  "likelihoods": {
+    "symptom:cough:present": {
+      "synthetic_pattern_alpha": 0.8,
+      "synthetic_pattern_beta": 0.3,
+      "synthetic_other": 0.2
+    },
+    "symptom:cough:absent": {
+      "synthetic_pattern_alpha": 0.2,
+      "synthetic_pattern_beta": 0.7,
+      "synthetic_other": 0.8
+    },
+    "symptom:fever:present": {
+      "synthetic_pattern_alpha": 0.75,
+      "synthetic_pattern_beta": 0.25,
+      "synthetic_other": 0.3
+    },
+    "symptom:fever:absent": {
+      "synthetic_pattern_alpha": 0.25,
+      "synthetic_pattern_beta": 0.75,
+      "synthetic_other": 0.7
+    },
+    "symptom:headache:present": {
+      "synthetic_pattern_alpha": 0.35,
+      "synthetic_pattern_beta": 0.7,
+      "synthetic_other": 0.3
+    },
+    "symptom:headache:absent": {
+      "synthetic_pattern_alpha": 0.65,
+      "synthetic_pattern_beta": 0.3,
+      "synthetic_other": 0.7
+    },
+    "observation:temperature_celsius:reported": {
+      "synthetic_pattern_alpha": 0.7,
+      "synthetic_pattern_beta": 0.4,
+      "synthetic_other": 0.3
+    },
+    "observation:heart_rate_bpm:reported": {
+      "synthetic_pattern_alpha": 0.45,
+      "synthetic_pattern_beta": 0.55,
+      "synthetic_other": 0.4
+    },
+    "observation:respiratory_rate_per_minute:reported": {
+      "synthetic_pattern_alpha": 0.5,
+      "synthetic_pattern_beta": 0.6,
+      "synthetic_other": 0.35
+    },
+    "observation:oxygen_saturation_percent:reported": {
+      "synthetic_pattern_alpha": 0.4,
+      "synthetic_pattern_beta": 0.65,
+      "synthetic_other": 0.4
+    }
+  },
+  "limitations": [
+    "All candidate labels, priors, and conditional likelihoods are synthetic educational examples, not clinical evidence.",
+    "A posterior is a conditional calculation under the supplied synthetic parameters, not certainty, a diagnosis, or an individualized clinical risk estimate.",
+    "Unmentioned symptoms are treated as missing evidence, not as absent symptoms.",
+    "Only evidence keys explicitly listed in this file contribute likelihoods; unsupported or unmodeled input is reported but not assigned a probability.",
+    "Contradictory claims for the same symptom are excluded from the calculation and surfaced as a limitation.",
+    "This engine does not combine Bayesian outputs with machine-learning probabilities."
+  ]
+}
